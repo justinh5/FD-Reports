@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --watchAll",
     "start": "webpack && webpack-dev-server",
-    "lint": "eslint src/** src/**/**; exit 0"
+    "lint": "eslint src/** src/**/**; exit 0",
+    "lint-fix": "eslint --fix src/** src/**/**; exit 0"
   },
   "repository": {
     "type": "git",

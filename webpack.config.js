@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -24,7 +25,7 @@ module.exports = {
 
   devServer: {
     hot: true,
-    contentBase: resolve(__dirname, 'build'),
+    contentBase: resolve(__dirname, 'dist'),
     publicPath: '/'
   },
 
@@ -81,7 +82,7 @@ module.exports = {
       template:'template.ejs',
       appMountId: 'react-app-root',
       title: 'FD Reports',
-      filename: resolve(__dirname, "build", "index.html"),
+      filename: resolve(__dirname, "dist", "index.html"),
     }),
   ]
 };
