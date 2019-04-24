@@ -1,13 +1,15 @@
 
+@import 'variables';
+
 body, #react-app-root {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   height: 100vh;
   min-height: 100%;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: #150019;
-  background-color: red;
+  color: $gray_dark;
+  background-color: $background;
 }
 
 // .container {

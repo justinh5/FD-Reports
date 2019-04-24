@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/title.svg";
 
-function Page1() {
+function Landing() {
 
   return (
     <div>
+      <div>
+        <img src={logo}/>
+        <h3>Food, Drug, and Device Adverse Events and Recalls</h3>
+      </div>
       <nav>
         <ul>
           <li>
@@ -24,4 +29,4 @@ function Page1() {
 }
 
 
-export default Page1;
+export default Landing;
