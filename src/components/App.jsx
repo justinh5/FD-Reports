@@ -7,6 +7,7 @@ import Page3 from "./Page3";
 import Error404 from "./Error404";
 
 class App extends React.Component {
+
   render(){
     return (
       <div>

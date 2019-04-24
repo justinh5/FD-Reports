@@ -4,12 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    resolve(__dirname, "src", "index.jsx")
-  ],
+  entry: resolve(__dirname, "src", "index.jsx"),
 
   output: {
     filename: 'app.bundle.js',
@@ -20,8 +15,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-
-  devtool: '#source-map',
 
   devServer: {
     hot: true,
@@ -39,9 +32,9 @@ module.exports = {
         options: {
           emitWarning: true,
           configFile: "./.eslintrc"
-          }
-        },
-        {
+        }
+      },
+      {
         test: /\.jsx?$/,
         loader: "babel-loader",
         exclude: /node_modules/,
@@ -49,40 +42,26 @@ module.exports = {
           presets: [
             ["es2015", {"modules": false}],
             "react",
-          ],
-          plugins: [
-            "react-hot-loader/babel"
           ]
         }
       },
       {
-        test: /\.css$/,
-        loader: 'style-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: 'css-loader',
-        exclude: resolve(__dirname, "src/styles/styles.css"),
-        options: {
-         modules: true,
-         localIdentName: '[name]__[local]___[hash:base64:5]'
-       }
-     },
-     {
-       test: resolve(__dirname, "src/styles/styles.css"),
-       loader: 'css-loader'
-     }
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
     ]
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template:'template.ejs',
       appMountId: 'react-app-root',
       title: 'FD Reports',
       filename: resolve(__dirname, "dist", "index.html"),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      }
     }),
   ]
 };

@@ -1,14 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Page1() {
+class Page1 extends React.Component {
 
-  return (
-    <div>
-      <p>I'm page 1!</p>
-      <Link to="/">Home</Link>
-    </div>
-  );
+  componentWillMount() {
+    //console.log("Is Mounting!");
+  }
+
+  render() {
+    return (
+      <div>
+        <p>I'm page 1!</p>
+        <Link to="/">Home</Link>
+      </div>
+    );
+  }
 }
 
 
