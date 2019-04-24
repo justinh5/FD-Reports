@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Landing from "./Landing";
@@ -23,4 +24,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default hot(App);

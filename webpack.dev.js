@@ -66,10 +66,10 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
-      template:'template.ejs',
+      template:'./template.ejs',
       appMountId: 'react-app-root',
       title: 'FD Reports',
-      filename: resolve(__dirname, "dist", "index.html")
+      filename: resolve(__dirname, 'dist', 'index.html')
     }),
   ]
 };
