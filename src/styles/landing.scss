@@ -3,25 +3,55 @@
 
 ul {
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 
 li {
   display: inline-block;
-  padding: 10px 40px;
-  border-right: 1px solid $gray_light;
+  padding-bottom: 15px;
+
+  &:before {
+    display:block;
+    content: '';
+    width: 50%;
+    margin: 0 auto;
+    border-bottom: solid 5px $primary_blue;
+    margin-bottom: 10px;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
 
   &:hover {
     cursor: pointer;
-    background-color: white;
     transition: 0.5s;
+
+    &:before {
+      transform: scaleX(1);
+    }
+  }
+
+  a {
+    padding: 15px 60px;
   }
 }
 
+
 nav {
+  margin: 80px 0;
   -webkit-box-shadow: 0 8px 6px -6px black;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
+}
+
+
+
+.vertical-divider {
+  display: inline-block;
+  background-color: $gray_light;
+  width: 1px;
+  height: 25px;
 }
 
 

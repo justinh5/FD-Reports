@@ -11,11 +11,17 @@ function Navigation() {
           <li>
             <Link to="/page1">Food</Link>
           </li>
+          <div className="vertical-divider"></div>
           <li>
             <Link to="/page2">Drugs</Link>
           </li>
+          <div className="vertical-divider"></div>
           <li>
             <Link to="/page3">Devices</Link>
+          </li>
+          <div className="vertical-divider"></div>
+          <li>
+            <a href="https://www.fda.gov/" target="_blank">FDA</a>
           </li>
         </ul>
       </nav>

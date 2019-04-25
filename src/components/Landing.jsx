@@ -16,6 +16,9 @@ function Landing() {
       <a href="https://open.fda.gov/" target="_blank">
         <img id="banner" src={banner} alt="OpenFDA" />
       </a>
+      <div id="article-row">
+        
+      </div>
     </div>
   );
 }
