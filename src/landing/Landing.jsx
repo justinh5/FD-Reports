@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/landing/landing.scss";
-import Navigation from "./Navigation";
+import LandingNav from "./LandingNav";
 import Footer from "../app/Footer";
 import logo from "../assets/images/title.svg";
 import banner from "../assets/images/api_banner.jpg";
@@ -18,7 +18,7 @@ function Landing() {
         <img src={logo}/>
         <h3>Food, Drug, and Device Adverse Events and Recalls</h3>
       </div>
-      <Navigation />
+      <LandingNav/>
       <a href="https://open.fda.gov/" target="_blank">
         <img id="banner" src={banner} alt="OpenFDA" />
       </a>

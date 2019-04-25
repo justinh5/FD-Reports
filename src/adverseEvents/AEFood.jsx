@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import AENav from "./AENav";
+import GlobalNav from "../app/GlobalNav";
+import AEHeader from "./AEHeader";
+import Footer from "../app/Footer";
 
 class AEfood extends React.Component {
 
@@ -12,9 +13,9 @@ class AEfood extends React.Component {
   render() {
     return (
       <div>
-        <AENav/>
-        <p>I'm Adverers  food!</p>
-        <Link to="/">Home</Link>
+        <GlobalNav/>
+        <AEHeader/>
+        <Footer/>
       </div>
     );
   }

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/landing/navigation.scss";
+import styles from "../styles/landing/landingNav.scss";
 
-function Navigation() {
+function LandingNav() {
 
   return (
     <div>
-      <nav className="header-nav">
+      <nav className="landing-nav">
         <ul>
           <li>
             <div className="dropdown">Food</div>
@@ -44,4 +44,4 @@ function Navigation() {
 }
 
 
-export default Navigation;
+export default LandingNav;

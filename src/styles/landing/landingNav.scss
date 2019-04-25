@@ -1,7 +1,7 @@
 
 @import '../partials/base';
 
-.header-nav {
+.landing-nav {
   margin: 60px 0;
   -webkit-box-shadow: 0 8px 6px -6px black;
 	   -moz-box-shadow: 0 8px 6px -6px black;
@@ -78,7 +78,7 @@
 
 @media screen and (max-width: 900px) {
 
-  .header-nav {
+  .landing-nav {
     ul {
       justify-content: space-around;
       li {
