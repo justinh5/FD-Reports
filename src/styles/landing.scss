@@ -1,0 +1,30 @@
+
+@import 'variables';
+
+ul {
+  padding: 0;
+}
+
+
+li {
+  display: inline-block;
+  padding: 10px 40px;
+  border-right: 1px solid $gray_light;
+
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+    transition: 0.5s;
+  }
+}
+
+nav {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+
+
+#banner {
+  width: 100%;
+}

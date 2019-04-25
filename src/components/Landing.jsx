@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Navigation from "./Navigation";
 import logo from "../assets/images/title.svg";
+import banner from "../assets/images/api_banner.jpg";
+
 
 function Landing() {
 
@@ -10,20 +12,10 @@ function Landing() {
         <img src={logo}/>
         <h3>Food, Drug, and Device Adverse Events and Recalls</h3>
       </div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/page1">page1</Link>
-          </li>
-          <li>
-            <Link to="/page2">page2</Link>
-          </li>
-          <li>
-            <Link to="/page3">page3</Link>
-          </li>
-        </ul>
-      </nav>
-      <p>I'm the landing page!</p>
+      <Navigation />
+      <a href="https://open.fda.gov/" target="_blank">
+        <img id="banner" src={banner} alt="OpenFDA" />
+      </a>
     </div>
   );
 }

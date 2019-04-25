@@ -11,13 +11,15 @@ function App() {
 
   return (
     <div>
-      <Switch>
-        <Route exact path='/' component={Landing} />
-        <Route exact path='/page1' component={Page1} />
-        <Route exact path='/page2' component={Page2} />
-        <Route exact path='/page3' component={Page3} />} />
-        <Route component={Error404} />
-      </Switch>
+      <div className = "container">
+        <Switch>
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/page1' component={Page1} />
+          <Route exact path='/page2' component={Page2} />
+          <Route exact path='/page3' component={Page3} />} />
+          <Route component={Error404} />
+        </Switch>
+      </div>
     </div>
   );
 }
