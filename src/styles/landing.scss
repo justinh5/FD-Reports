@@ -1,6 +1,11 @@
 
 @import 'variables';
 
+.logo-container:hover {
+  img:hover {
+    cursor: pointer;
+  }
+}
 
 #banner {
   width: 100%;

@@ -14,7 +14,7 @@ function Landing() {
 
   return (
     <div>
-      <div>
+      <div className="logo-container">
         <img src={logo}/>
         <h3>Food, Drug, and Device Adverse Events and Recalls</h3>
       </div>

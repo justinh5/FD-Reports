@@ -9,19 +9,33 @@ function Navigation() {
       <nav className="header-nav">
         <ul>
           <li>
-            <Link to="/page1">Food</Link>
+            <div className="dropdown">Food</div>
+            <div className="dropdown-content">
+              <Link to="/page1">Averse Events</Link>
+              <Link to="/page2">Recalls</Link>
+            </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
-            <Link to="/page2">Drugs</Link>
+            <div className="dropdown">Drugs</div>
+            <div className="dropdown-content">
+              <Link to="/page1">Averse Events</Link>
+              <Link to="/page2">Recalls</Link>
+            </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
-            <Link to="/page3">Devices</Link>
+            <div className="dropdown">Devices</div>
+            <div className="dropdown-content">
+              <Link to="/page1">Averse Events</Link>
+              <Link to="/page2">Recalls</Link>
+            </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
-            <a href="https://www.fda.gov/" target="_blank">FDA</a>
+            <div className="dropdown">
+              <a href="https://www.fda.gov/" target="_blank">FDA</a>
+            </div>
           </li>
         </ul>
       </nav>
