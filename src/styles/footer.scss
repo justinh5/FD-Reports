@@ -1,0 +1,17 @@
+
+.footer-container {
+  text-align: center;
+  width: 70%;
+  margin: 7em auto 3em auto;
+
+  em {
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .footer-container {
+    width: 100%;
+  }
+}
