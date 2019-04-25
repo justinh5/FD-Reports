@@ -1,5 +1,5 @@
 
-@import 'variables';
+@import './partials/base';
 
 body, #react-app-root {
   margin: 0;
@@ -22,4 +22,22 @@ body, #react-app-root {
 a {
   color: $gray_dark;
   text-decoration: none;
+}
+
+
+.footer-container {
+  text-align: center;
+  width: 70%;
+  margin: 7em auto 3em auto;
+
+  em {
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .footer-container {
+    width: 100%;
+  }
 }

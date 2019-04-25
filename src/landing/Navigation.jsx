@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/navigation.scss";
+import styles from "../styles/landing/navigation.scss";
 
 function Navigation() {
 
@@ -11,7 +11,7 @@ function Navigation() {
           <li>
             <div className="dropdown">Food</div>
             <div className="dropdown-content">
-              <Link to="/page1">Averse Events</Link>
+              <Link to="/AdverseEvents/Food">Adverse Events</Link>
               <Link to="/page2">Recalls</Link>
             </div>
           </li>
@@ -19,7 +19,7 @@ function Navigation() {
           <li>
             <div className="dropdown">Drugs</div>
             <div className="dropdown-content">
-              <Link to="/page1">Averse Events</Link>
+              <Link to="/page1">Adverse Events</Link>
               <Link to="/page2">Recalls</Link>
             </div>
           </li>
@@ -27,7 +27,7 @@ function Navigation() {
           <li>
             <div className="dropdown">Devices</div>
             <div className="dropdown-content">
-              <Link to="/page1">Averse Events</Link>
+              <Link to="/page1">Adverse Events</Link>
               <Link to="/page2">Recalls</Link>
             </div>
           </li>
