@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../styles/adverseEvents/adverseEvents.scss";
 import icon from "../assets/images/food_icon.svg";
 
 

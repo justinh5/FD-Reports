@@ -1,5 +1,4 @@
 import React from "react";
-// import Line from "react-chartjs";
 import { Line } from 'react-chartjs-2';
 
 function AELinechart() {
@@ -55,7 +54,7 @@ function AELinechart() {
     };
 
   return (
-    <div className="report-item linechart-container">
+    <div className="linechart-container">
       <Line data={chartData} options={chartOptions} width={300} height={150}/>
     </div>
   );

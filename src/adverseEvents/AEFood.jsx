@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import styles from "../styles/adverseEvents/adverseEvents.scss";
 import GlobalNav from "../app/GlobalNav";
 import AEHeader from "./AEHeader";
 import AELinechart from "./AELinechart";
+import AESeriousness from "./AESeriousness";
+import AESource from "./AESource";
 import Footer from "../app/Footer";
 
 class AEfood extends React.Component {
@@ -16,7 +19,19 @@ class AEfood extends React.Component {
       <div>
         <GlobalNav/>
         <AEHeader/>
-        <AELinechart/>
+        <div className="block-grid">
+          <div className="one report-item">
+            <AELinechart/>
+          </div>
+          <div className="two report-item">
+            <AESeriousness/>
+          </div>
+          <div className="three report-item">
+            <AESource/>
+          </div>
+          <div className="four report-item">
+          </div>
+        </div>
         <Footer/>
       </div>
     );
