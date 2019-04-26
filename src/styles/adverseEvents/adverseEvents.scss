@@ -40,3 +40,15 @@
   display: block;
   margin-top: 15px;
 }
+
+.report-item {
+  background-color: white;
+  -moz-box-shadow:    2px 2px 3px 1px $gray_light;
+  -webkit-box-shadow: 2px 2px 3px 1px $gray_light;
+  box-shadow:         2px 2px 3px 1px $gray_light;
+}
+
+.linechart-container {
+  width: 100%;
+  padding: 20px;
+}
