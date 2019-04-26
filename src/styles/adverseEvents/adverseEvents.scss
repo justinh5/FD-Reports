@@ -5,4 +5,38 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin: 2em 0 1em 0;
+
+  -webkit-box-shadow: 0 8px 6px -6px $gray_light;
+	   -moz-box-shadow: 0 8px 6px -6px $gray_light;
+	        box-shadow: 0 8px 6px -6px $gray_light;
+
+  h1 {
+    color: black;
+    font-family: "Arial Black", sans-serif;
+    font-size: 3em;
+    margin: 0;
+    margin-right: 20px;
+  }
+
+  img {
+    width: $icon-width;
+  }
+}
+
+.subtitle {
+  color: $gray_med;
+  font-family: Arial, sans-serif;
+  font-weight: bolder;
+}
+
+.notice-container {
+  text-align: center;
+  width: 75%;
+  margin: 2em auto;
+}
+
+.notice {
+  display: block;
+  margin-top: 15px;
 }
