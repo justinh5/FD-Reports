@@ -1,0 +1,47 @@
+
+@import '../partials/base';
+
+.record-container {
+
+  padding: 0 70px 70px 70px;
+
+
+  .record {
+
+    margin-top: 30px;
+
+    .record-label {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .record-amt {
+      padding-left: 20px;
+      color: $gray_light;
+    }
+
+    .count-bar {
+      background-color: $bar_color;
+      height: 7px;
+      border-radius: 16px;
+      margin-top: 10px;
+      max-width: 100%;
+      transform: translateZ(0px);
+      transition: width 0.35s ease-in-out 0s;
+      transition-property: width;
+      transition-duration: 0.35s;
+      transition-timing-function: ease-in-out;
+      transition-delay: 0s;
+      width: 80%;
+    }
+  }
+
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+
+}

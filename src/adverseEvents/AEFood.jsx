@@ -6,6 +6,7 @@ import AEHeader from "./AEHeader";
 import AELinechart from "./AELinechart";
 import AESeriousness from "./AESeriousness";
 import AESource from "./AESource";
+import AERecords from "./AERecords";
 import Footer from "../app/Footer";
 
 class AEfood extends React.Component {
@@ -30,6 +31,7 @@ class AEfood extends React.Component {
             <AESource/>
           </div>
           <div className="four report-item">
+            <AERecords/>
           </div>
         </div>
         <Footer/>

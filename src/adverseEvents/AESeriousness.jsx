@@ -5,7 +5,6 @@ import { Doughnut } from 'react-chartjs-2';
 function AESeriousness() {
 
   const chartData = {
-      labels: ["1", "2", "3", "N"],
       datasets: [
         {
           backgroundColor: ["#3DDAD7", "#2A93D5"],
@@ -13,8 +12,8 @@ function AESeriousness() {
         }
       ],
       labels: [
-        'The event resulted in death, a life threatening condition, hospitalization, disability, congenital anomaly, or other serious condition',
-        'The adverse event did not result in any of the above'
+        'Very serious',
+        'None of the above'
       ]
   };
 
@@ -22,12 +21,10 @@ function AESeriousness() {
     responsive: true,
     maintainAspectRatio: false,
     title: {
-        display: false,
-        text: 'Adverse Event Seriousness'
+        display: false
     },
     legend:  {
-      display: false,
-      position: 'right'
+      display: false
     }
   };
 

@@ -7,7 +7,6 @@ function AESource() {
   // 529141, 170966, 150966, 17966
 
   const chartData = {
-      labels: ["1", "2", "3", "N"],
       datasets: [
         {
           backgroundColor: ["#3DDAD7", "#2A93D5", "#135589", "#57E299", "#AED9DA"],
@@ -27,8 +26,7 @@ function AESource() {
     responsive: true,
     maintainAspectRatio: false,
     title: {
-        display: false,
-        text: 'Report Source'
+        display: false
     },
     legend:  {
       display: false,
@@ -49,7 +47,7 @@ function AESource() {
           </div>
           <div className="legend-item">
             <div className="legend-color color2"></div>
-            <p className="legend-label">Pysician</p>
+            <p className="legend-label">Physician</p>
           </div>
           <div className="legend-item">
             <div className="legend-color color3"></div>
