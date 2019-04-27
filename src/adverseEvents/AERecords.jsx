@@ -4,6 +4,23 @@ import { Doughnut } from 'react-chartjs-2';
 
 function AERecords() {
 
+  const test =[
+    {
+      label: "Example one!",
+      value: 4000
+    },
+    {
+      label: "Example Two!",
+      value: 2000
+    },
+    {
+      label: "Example Three!",
+      value: 180
+    }
+  ];
+
+  // Save max value in state?
+
 
   return (
     <div>
@@ -13,18 +30,20 @@ function AERecords() {
         <div className="tab">Reported Reactions</div>
       </div>
       <div className="record-container">
-        <div className="record">
-          <h4 className="record-label">This is an example [EPC] <span className="record-amt">45485</span></h4>
-          <div className="count-bar"></div>
-        </div>
-        <div className="record">
-          <h4 className="record-label">This is an example2 [EPC] <span className="record-amt">25485</span></h4>
-          <div className="count-bar"></div>
-        </div>
+        {test.map(function(item, index) {
+          if(index < 10) {
+            let w = Math.round((item.value / test[0].value)*100);
+            return <div className="record" key={index}>
+              <h4 className="record-label">{item.label} <span className="record-amt">{item.value}</span></h4>
+              <div className="count-bar" style={{width: `${w}%`}}></div>
+            </div>;
+          }
+        })}
       </div>
     </div>
   );
 }
+
 
 
 export default AERecords;
