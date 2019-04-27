@@ -9,36 +9,27 @@ function AELinechart() {
     const chartData = {
       labels: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
       datasets: [{
-        label: "OTC drugs",
-        backgroundColor: 'rgba(87, 226, 153, 0.3)',
-        borderColor: 'rgba(87, 226, 153)',
+        backgroundColor: 'rgb(42, 147, 213, 0.2)',
+        borderColor: 'rgb(42, 147, 213)',
         data: db
-      },
-      {
-        label: "Perscription drugs",
-        backgroundColor: 'rgba(42, 147, 213, 0.2)',
-        borderColor: 'rgba(42, 147, 213)',
-        data: d,
       }]
     };
 
     const chartOptions = {
       responsive: true,
-      maintainAspectRatio: true,
-      legend:  {
-        display: true,
-        position: 'top',
-        reverse: true
+      maintainAspectRatio: false,
+      legend: {
+        display: false
       },
       title: {
           display: true,
-          text: 'Total Drug Recall Reports Since 2012'
+          text: 'Total Adverse Event Reports Since 2004'
       },
       scales: {
           yAxes: [{
               scaleLabel: {
                 display: true,
-                labelString: 'Recall enforcement reports'
+                labelString: 'Drug adverse event reports'
               },
               ticks: {
                   beginAtZero: true
@@ -55,7 +46,7 @@ function AELinechart() {
 
   return (
     <div className="linechart-container">
-      <Line data={chartData} options={chartOptions} width={300} height={150}/>
+      <Line data={chartData} options={chartOptions} />
     </div>
   );
 }

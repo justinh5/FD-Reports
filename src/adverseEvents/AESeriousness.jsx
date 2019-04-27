@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../styles/adverseEvents/AESeriousness.scss";
 import { Doughnut } from 'react-chartjs-2';
 
 function AESeriousness() {
@@ -7,10 +8,13 @@ function AESeriousness() {
       labels: ["1", "2", "3", "N"],
       datasets: [
         {
-          label: "Serious",
-          backgroundColor: ["#3DDAD7", "#2A93D5", "#135589", "#57E299"],
-          data: [529141, 170966, 150966, 17966 ]
+          backgroundColor: ["#3DDAD7", "#2A93D5"],
+          data: [529141, 170966]
         }
+      ],
+      labels: [
+        'The event resulted in death, a life threatening condition, hospitalization, disability, congenital anomaly, or other serious condition',
+        'The adverse event did not result in any of the above'
       ]
   };
 
@@ -23,13 +27,28 @@ function AESeriousness() {
     },
     legend:  {
       display: false,
-      position: 'top'
+      position: 'right'
     }
   };
 
   return (
     <div className="seriousness-container">
-      <Doughnut data={chartData} options={chartOptions} />
+      <p className="chart-title">Adverse Event Seriousness</p>
+      <div className="chart-legend-container">
+        <div className="chart-container">
+          <Doughnut data={chartData} options={chartOptions}/>
+        </div>
+        <div className="custom-legend">
+          <div className="legend-item">
+            <div className="legend-color color3"></div>
+            <p className="legend-label">The event resulted in death, a life threatening condition, hospitalization, disability, congenital anomaly, or other serious condition</p>
+          </div>
+          <div className="legend-item">
+            <div className="legend-color color2"></div>
+            <p className="legend-label">The adverse event did not result in any of the above</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

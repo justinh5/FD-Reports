@@ -1,0 +1,36 @@
+
+.seriousness-container {
+  height: 100%;
+
+  .chart-legend-container {
+    padding-top: 10px;
+
+    .chart-container {
+      width: 60%;
+      display: inline-block;
+    }
+
+    .custom-legend {
+      display: inline-block;
+      width: 40%;
+      font-family: "Times New Roman", Times, serif;
+    }
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+
+  .seriousness-container {
+    .chart-legend-container {
+      .chart-container {
+        width: 50%;
+      }
+      .custom-legend {
+        .legend-label {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
