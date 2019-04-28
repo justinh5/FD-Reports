@@ -6,31 +6,56 @@ import { selectTab } from "./../actions";
 import AERecordList from "./AERecordList";
 import { Doughnut } from 'react-chartjs-2';
 
-function AERecords(props){
+class AERecords extends React.Component {
 
-  function handleChangeTab(event) {
-    const { dispatch } = props;
+  constructor(props) {
+    super(props);
+    this.handleChangeTab = this.handleChangeTab.bind(this);
+    this.test =[
+      {
+        label: "Example one!",
+        value: 4000
+      },
+      {
+        label: "Example Two!",
+        value: 2000
+      },
+      {
+        label: "Example Three!",
+        value: 180
+      }
+    ];
+  }
+
+  componentWillMount() {
+    console.log("Is Mounting!");
+  }
+
+  handleChangeTab(event) {
+    const { dispatch } = this.props;
     dispatch(selectTab(parseInt(event.target.attributes['data-tab'].value)));
   }
 
-  let tab1Class = props.selectedTab === 0 ? 'tab selected' : 'tab';
-  let tab2Class = props.selectedTab === 1 ? 'tab selected' : 'tab';
-  let tab3Class = props.selectedTab === 2 ? 'tab selected' : 'tab';
+  render() {
+    let tab1Class = this.props.selectedTab === 0 ? 'tab selected' : 'tab';
+    let tab2Class = this.props.selectedTab === 1 ? 'tab selected' : 'tab';
+    let tab3Class = this.props.selectedTab === 2 ? 'tab selected' : 'tab';
 
-  return (
-    <div>
-      <div className="tabs">
-        <div className={tab1Class} data-tab="0" onClick={handleChangeTab}>Product Types</div>
-        <div className={tab2Class} data-tab="1" onClick={handleChangeTab}>Reported Outcomes</div>
-        <div className={tab3Class} data-tab="2" onClick={handleChangeTab}>Reported Reactions</div>
+    return (
+      <div>
+        <div className="tabs">
+          <div className={tab1Class} data-tab="0" onClick={this.handleChangeTab}>Product Types</div>
+          <div className={tab2Class} data-tab="1" onClick={this.handleChangeTab}>Reported Outcomes</div>
+          <div className={tab3Class} data-tab="2" onClick={this.handleChangeTab}>Reported Reactions</div>
+        </div>
+        <AERecordList recordList={this.test}/>
       </div>
-      <AERecordList/>
-    </div>
-  );
+    );
+  }
 };
 
 AERecords.propTypes = {
-  recordList: PropTypes.array,
+  recordList: PropTypes.object,
   selectedTab: PropTypes.number
 };
 
