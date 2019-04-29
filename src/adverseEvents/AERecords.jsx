@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import styles from "../styles/adverseEvents/AERecords.scss";
-import { selectTab } from "./../actions";
+import { selectTab, fetchRecords } from "./../actions";
 import AERecordList from "./AERecordList";
 import { Doughnut } from 'react-chartjs-2';
 
@@ -11,44 +11,51 @@ class AERecords extends React.Component {
   constructor(props) {
     super(props);
     this.handleChangeTab = this.handleChangeTab.bind(this);
-    this.test =[
-      {
-        label: "Example one!",
-        value: 4000
-      },
-      {
-        label: "Example Two!",
-        value: 2000
-      },
-      {
-        label: "Example Three!",
-        value: 180
-      }
-    ];
   }
 
   componentWillMount() {
-    console.log("Is Mounting!");
+    //select default tab when loading component
+    this.props.dispatch(selectTab(this.props.tabs[0].id));
   }
 
   handleChangeTab(event) {
-    const { dispatch } = this.props;
-    dispatch(selectTab(parseInt(event.target.attributes['data-tab'].value)));
+    this.props.dispatch(selectTab(event.target.attributes['data-tab'].value));
   }
 
   render() {
-    let tab1Class = this.props.selectedTab === 0 ? 'tab selected' : 'tab';
-    let tab2Class = this.props.selectedTab === 1 ? 'tab selected' : 'tab';
-    let tab3Class = this.props.selectedTab === 2 ? 'tab selected' : 'tab';
+
+    if(this.props.selectedTab && this.props.fetched === false) {
+      let index = this.props.tabs.findIndex(item => item.id === this.props.selectedTab);
+      this.props.dispatch(fetchRecords(this.props.tabs[index]));
+    }
+
+    let tab1Class = this.props.selectedTab === this.props.tabs[0].id ? 'tab selected' : 'tab';
+    let tab2Class = this.props.selectedTab === this.props.tabs[1].id ? 'tab selected' : 'tab';
+    let tab3Class = this.props.selectedTab === this.props.tabs[2].id ? 'tab selected' : 'tab';
 
     return (
       <div>
         <div className="tabs">
-          <div className={tab1Class} data-tab="0" onClick={this.handleChangeTab}>{this.props.tabs[0].label}</div>
-          <div className={tab2Class} data-tab="1" onClick={this.handleChangeTab}>{this.props.tabs[1].label}</div>
-          <div className={tab3Class} data-tab="2" onClick={this.handleChangeTab}>{this.props.tabs[2].label}</div>
+          <div className={tab1Class}
+               data-tab={this.props.tabs[0].id}
+               data-index="0"
+               onClick={this.handleChangeTab}>
+               {this.props.tabs[0].label}
+          </div>
+          <div className={tab2Class}
+               data-tab={this.props.tabs[1].id}
+               data-index="1"
+               onClick={this.handleChangeTab}>
+               {this.props.tabs[1].label}
+          </div>
+          <div className={tab3Class}
+               data-tab={this.props.tabs[2].id}
+               data-index="2"
+               onClick={this.handleChangeTab}>
+               {this.props.tabs[2].label}
+          </div>
         </div>
-        <AERecordList recordList={this.test}/>
+        <AERecordList recordList={this.props.recordList}/>
       </div>
     );
   }
@@ -56,15 +63,29 @@ class AERecords extends React.Component {
 
 AERecords.propTypes = {
   tabs: PropTypes.array,
-  recordList: PropTypes.object,
-  selectedTab: PropTypes.number
+  fetched: PropTypes.bool,
+  recordList: PropTypes.array,
+  selectedTab: PropTypes.string
 };
 
 const mapStateToProps = state => {
-  return {
-    selectedTab: state.selectedTab,
-    recordList: state.recordList
-  };
+
+  let info;
+  if(state.selectedTab) {
+    info = {
+      fetched: state.recordList[state.selectedTab].retrieved,
+      selectedTab: state.selectedTab,
+      recordList: state.recordList[state.selectedTab].data
+    };
+  }
+  else {
+    info = {
+      fetched: false,
+      selectedTab: state.selectedTab,
+      recordList: []
+    };
+  }
+  return info;
 };
 
 export default connect(mapStateToProps)(AERecords);
