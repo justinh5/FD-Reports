@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import styles from "../styles/adverseEvents/adverseEvents.scss";
+import constants from "./../constants";
+const { tabs } = constants;
 import GlobalNav from "../app/GlobalNav";
 import AEHeader from "./AEHeader";
 import AELinechart from "./AELinechart";
@@ -16,6 +18,7 @@ class AEfood extends React.Component {
   }
 
   render() {
+
     return (
       <div>
         <GlobalNav/>
@@ -31,7 +34,7 @@ class AEfood extends React.Component {
             <AESource/>
           </div>
           <div className="four report-item">
-            <AERecords/>
+            <AERecords tabs={tabs.food}/>
           </div>
         </div>
         <Footer/>

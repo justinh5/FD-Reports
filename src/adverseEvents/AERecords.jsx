@@ -44,9 +44,9 @@ class AERecords extends React.Component {
     return (
       <div>
         <div className="tabs">
-          <div className={tab1Class} data-tab="0" onClick={this.handleChangeTab}>Product Types</div>
-          <div className={tab2Class} data-tab="1" onClick={this.handleChangeTab}>Reported Outcomes</div>
-          <div className={tab3Class} data-tab="2" onClick={this.handleChangeTab}>Reported Reactions</div>
+          <div className={tab1Class} data-tab="0" onClick={this.handleChangeTab}>{this.props.tabs[0].label}</div>
+          <div className={tab2Class} data-tab="1" onClick={this.handleChangeTab}>{this.props.tabs[1].label}</div>
+          <div className={tab3Class} data-tab="2" onClick={this.handleChangeTab}>{this.props.tabs[2].label}</div>
         </div>
         <AERecordList recordList={this.test}/>
       </div>
@@ -55,6 +55,7 @@ class AERecords extends React.Component {
 };
 
 AERecords.propTypes = {
+  tabs: PropTypes.array,
   recordList: PropTypes.object,
   selectedTab: PropTypes.number
 };
