@@ -1,0 +1,52 @@
+
+@import '../partials/base';
+
+.status-container {
+  height: 100%;
+  padding: 10px;
+
+  table {
+    border-collapse: collapse;
+
+    td {
+      padding: 7px 0;
+      width: 50%;
+    }
+
+    .first-row {
+      padding-top: 13px;
+    }
+  }
+
+  th {
+    padding: 10px;
+    border-bottom: 1.5px solid $gray_light;
+  }
+
+  .left-col {
+    text-align: left;
+  }
+
+  .right-col {
+    text-align: center;
+  }
+
+  .status-label {
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
+  .status-amt {
+    color: $gray_light;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+
+}

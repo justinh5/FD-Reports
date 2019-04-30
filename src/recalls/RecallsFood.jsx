@@ -24,7 +24,6 @@ class Recallsfood extends React.Component {
       this.props.dispatch(fetchRecallTimeData(timeData.recalls.food.id,
                                               timeData.recalls.food.endpointA,
                                               timeData.recalls.food.endpointB));
-                                              console.log('fetched!!!!');
     }
   }
 
@@ -41,6 +40,12 @@ class Recallsfood extends React.Component {
                          setB={timeData.recalls.food.setB}
                          countsA={this.props.countsA}
                          countsB={this.props.countsB}/>
+          </div>
+          <div className="two report-item">
+            <RecallsStatus/>
+          </div>
+          <div className="three report-item">
+            <RecallsClassifications title={`${this.page} Recall Classifications`}/>
           </div>
         </div>
         <Footer/>
