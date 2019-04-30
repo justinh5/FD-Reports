@@ -43,7 +43,7 @@
 
 .block-grid {
   display: grid;
-  grid-template-columns: 0.7fr 1fr;
+  grid-template-columns: 0.4fr 1fr;
   grid-template-rows: minmax(min-content, 400px) minmax(min-content, 10px) minmax(500px, 1000px);
   grid-gap: 40px 40px;
   width: 100%;
@@ -67,12 +67,6 @@
   grid-column: 2;
   grid-row: 2;
   padding: 8px;
-  min-width: 0;
-}
-
-.four {
-  grid-column: 1 / 3;
-  grid-row: 3;
   min-width: 0;
 }
 
@@ -111,7 +105,8 @@
   }
 
   .legend-label {
-    font-size: 12px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11px;
   }
 }
 
@@ -133,32 +128,6 @@
 
 .color5 {
   background-color: $chart_color5;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-
-  .tab {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #D8D8D8;
-    border-right: 1px solid $gray_light;
-
-    &.selected {
-      background-color: white;
-      border-top: 5px solid #57E299;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
 }
 
 div:focus {

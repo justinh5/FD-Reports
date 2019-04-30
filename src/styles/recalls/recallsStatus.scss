@@ -48,5 +48,13 @@
 
 @media screen and (max-width: 700px) {
 
+  .status-container {
+    .status-label {
+      font-size: 15px;
+    }
 
+    .status-amt {
+      font-size: 13px;
+    }
+  }
 }
