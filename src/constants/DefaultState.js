@@ -1,75 +1,69 @@
 
+
+
+
 export const defaultState = {
-  timeData: {
-    aeFood: {
-      retrieved: false,
-      data: {
-        labels: [],
-        counts: []
+  adverseEvents: {
+    food: {
+      timeData: {
+        retrieved: false,
+        data: {
+          labels: [],
+          counts: []
+        }
+      },
+      selectedTab: null,
+      recordList: {
+        productTypes: {
+          retrieved: false,
+          data: []
+        },
+        reportedOutcomes: {
+          retrieved: false,
+          data: []
+        },
+        reportedReactions: {
+          retrieved: false,
+          data: []
+        }
       }
     },
-    recallsFood: {
-      retrieved: false,
-      data: {
-        labels: [],
-        countsA: [],
-        countsB: []
-      }
-    },
-    aeDrugs: {
-      retrieved: false,
-      data: []
-    },
-    recallsDrugs: {
-      retrieved: false,
-      data: []
-    },
-    aeDevices: {
-      retrieved: false,
-      data: []
-    },
-    recallsDevices: {
-      retrieved: false,
-      data: []
-    }
-  },
-  selectedTab: null,
-  recordList: {
-    productTypes: {
-      retrieved: false,
-      data: []
-    },
-    reportedOutcomes: {
-      retrieved: false,
-      data: []
-    },
-    reportedReactions: {
-      retrieved: false,
-      data: []
-    },
-    drugClasses: {
-      retrieved: false,
-      data: []
-    },
-    drugIndications: {
-      retrieved: false,
-      data: []
-    },
-    drugReactions: {
-      retrieved: false,
-      data: []
+    drugs: {
+
     },
     devices: {
-      retrieved: false,
-      data: []
+
+    }
+  },
+  recalls: {
+    food: {
+      timeData: {
+        retrieved: false,
+        data: {
+          labels: [],
+          countsA: [],
+          countsB: []
+        }
+      },
+      statusData: {
+        retrieved: false,
+        ongoing: 0,
+        completed: 0,
+        terminated: 0
+      },
+      classes: {
+        retrieved: false,
+        class1: 0,
+        class2: 0,
+        class3: 0,
+        notClassed: 0
+      }
     },
-    deviceAge: {
-      retrieved: false,
-      data: []
+    drugs: {
+
     },
-    manufacturerState: {
-      retrieved: false,
-      data: []
+    devices: {
+
     }
   }
 };
