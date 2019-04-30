@@ -14,23 +14,23 @@ function GlobalNav() {
             <div className="dropdown">Food</div>
             <div className="dropdown-content">
               <Link to="/AdverseEvents/Food">Adverse Events</Link>
-              <Link to="/page2">Recalls</Link>
+              <Link to="/Recalls/Food">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
             <div className="dropdown">Drugs</div>
             <div className="dropdown-content">
-              <Link to="/page1">Adverse Events</Link>
-              <Link to="/page2">Recalls</Link>
+              <Link to="/AdverseEvents/Drugs">Adverse Events</Link>
+              <Link to="/Recalls/Drugs">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
             <div className="dropdown">Devices</div>
             <div className="dropdown-content">
-              <Link to="/page1">Adverse Events</Link>
-              <Link to="/page2">Recalls</Link>
+              <Link to="/AdverseEvents/Devices">Adverse Events</Link>
+              <Link to="/Recalls/Devices">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>

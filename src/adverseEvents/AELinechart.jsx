@@ -27,7 +27,7 @@ function AELinechart(props) {
           yAxes: [{
               scaleLabel: {
                 display: true,
-                labelString: props.yaxis
+                labelString: "Adverse event reports"
               },
               ticks: {
                   beginAtZero: true
@@ -51,7 +51,6 @@ function AELinechart(props) {
 
 AELinechart.propTypes = {
   title: PropTypes.string,
-  yaxis: PropTypes.string,
   labels: PropTypes.array,
   counts: PropTypes.array
 };

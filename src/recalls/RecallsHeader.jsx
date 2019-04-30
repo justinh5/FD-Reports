@@ -4,7 +4,7 @@ import drug_icon from '../assets/images/drug_icon.svg';
 import device_icon from '../assets/images/device_icon.svg';
 
 
-function AEHeader(props) {
+function RecallsHeader(props) {
 
   function imageType(img) {
     switch (img) {
@@ -23,7 +23,7 @@ function AEHeader(props) {
         <h1>{props.page} Reports</h1>
         <img src={imageType(props.page)}/>
       </div>
-      <h1 className="subtitle">Adverse Events</h1>
+      <h1 className="subtitle">Recalls</h1>
       <div className="notice-container">
         <em className="notice">Data released by the FDA for public use (2004 - present)</em>
         <em className="notice">Do not rely on FD Reports to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.</em>
@@ -33,4 +33,4 @@ function AEHeader(props) {
 }
 
 
-export default AEHeader;
+export default RecallsHeader;

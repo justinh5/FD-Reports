@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from '../styles/adverseEvents/adverseEvents.scss';
 import constants from './../constants';
 const { tabs, timeData } = constants;
-import { fetchTimeData } from './../actions';
+import { fetchAETimeData } from './../actions';
 import GlobalNav from '../app/GlobalNav';
 import AEHeader from './AEHeader';
 import AELinechart from './AELinechart';
@@ -17,32 +17,25 @@ class AEfood extends React.Component {
 
   constructor(props) {
     super(props);
+    this.page = 'Food';
   }
 
   componentWillMount() {
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchTimeData(timeData.adverseEvents.food.id, timeData.adverseEvents.food.endpoint));
+      this.props.dispatch(fetchAETimeData(timeData.adverseEvents.food.id, timeData.adverseEvents.food.endpoint));
     }
   }
 
   render() {
-
     return (
       <div>
         <GlobalNav/>
-        <AEHeader/>
+        <AEHeader page={this.page}/>
         <div className="block-grid">
           <div className="one report-item">
-            <AELinechart title={timeData.adverseEvents.food.title}
-                         yaxis={timeData.adverseEvents.food.yaxis}
+            <AELinechart title={`Total ${this.page} Adverse Event Reports Since 2004`}
                          labels={this.props.labels}
                          counts={this.props.counts}/>
-          </div>
-          <div className="two report-item">
-            <AESeriousness/>
-          </div>
-          <div className="three report-item">
-            <AESource/>
           </div>
           <div className="four report-item">
             <AERecords tabs={tabs.food}/>
@@ -67,7 +60,14 @@ const mapStateToProps = state => {
     labels: state.timeData.aeFood.data.labels,
     counts: state.timeData.aeFood.data.counts
   };
-
 }
+
+// <div className="two report-item">
+//   <AESeriousness/>
+// </div>
+// <div className="three report-item">
+//   <AESource/>
+// </div>
+
 
 export default connect(mapStateToProps)(AEfood);

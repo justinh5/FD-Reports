@@ -10,7 +10,11 @@ export const defaultState = {
     },
     recallsFood: {
       retrieved: false,
-      data: []
+      data: {
+        labels: [],
+        countsA: [],
+        countsB: []
+      }
     },
     aeDrugs: {
       retrieved: false,

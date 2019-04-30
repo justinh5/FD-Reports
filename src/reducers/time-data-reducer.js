@@ -9,13 +9,28 @@ export default (state = defaultState.timeData, action) => {
 
   switch (action.type) {
 
-    case c.RECEIVE_TIME_DATA:
+    case c.RECEIVE_AE_TIME_DATA:
       time = state[action.id];
       newTimes = Object.assign({}, time,  {
         retrieved: true,
         data: {
           labels: action.labels,
           counts: action.counts
+        }
+      });
+      newState = Object.assign({}, state, {
+        [action.id]: newTimes
+      });
+      return newState;
+      
+    case c.RECEIVE_RECALL_TIME_DATA:
+      time = state[action.id];
+      newTimes = Object.assign({}, time,  {
+        retrieved: true,
+        data: {
+          labels: action.labels,
+          countsA: action.countsA,
+          countsB: action.countsB
         }
       });
       newState = Object.assign({}, state, {
