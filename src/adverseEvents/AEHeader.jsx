@@ -1,5 +1,5 @@
-import React from "react";
-import icon from "../assets/images/food_icon.svg";
+import React from 'react';
+import icon from '../assets/images/food_icon.svg';
 
 
 function AEHeader() {

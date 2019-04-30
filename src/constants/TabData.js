@@ -6,21 +6,21 @@ export const tabData = {
       tabIndex: 0,
       type: 'food',
       label: 'Product Types',
-      url: 'food/event.json?count=products.industry_name.exact'
+      endpoint: 'food/event.json?count=products.industry_name.exact'
     },
     {
       id: 'reportedOutcomes',
       tabIndex: 1,
       type: 'food',
       label: 'Reported Outcomes',
-      url: 'food/event.json?count=outcomes.exact'
+      endpoint: 'food/event.json?count=outcomes.exact'
     },
     {
       id: 'reportedReactions',
       tabIndex: 2,
       type: 'food',
       label: 'Reported Reactions',
-      url: 'food/event.json?count=consumer.age'
+      endpoint: 'food/event.json?count=consumer.age'
     }
   ],
   drugs: [],

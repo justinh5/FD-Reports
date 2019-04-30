@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../styles/adverseEvents/AESeriousness.scss";
+import React from 'react';
+import styles from '../styles/adverseEvents/AESeriousness.scss';
 import { Doughnut } from 'react-chartjs-2';
 
 function AESeriousness() {
@@ -7,7 +7,7 @@ function AESeriousness() {
   const chartData = {
       datasets: [
         {
-          backgroundColor: ["#3DDAD7", "#2A93D5"],
+          backgroundColor: ['#3DDAD7', '#2A93D5'],
           data: [529141, 170966]
         }
       ],

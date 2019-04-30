@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import styles from "../styles/adverseEvents/AERecords.scss";
-import { Doughnut } from 'react-chartjs-2';
+import styles from '../styles/adverseEvents/AERecords.scss';
 
 function AERecordList(props) {
 

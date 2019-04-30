@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
-import styles from "../styles/adverseEvents/AERecords.scss";
-import { selectTab, fetchRecords } from "./../actions";
-import AERecordList from "./AERecordList";
-import { Doughnut } from 'react-chartjs-2';
+import { connect } from 'react-redux';
+import styles from '../styles/adverseEvents/AERecords.scss';
+import { selectTab, fetchRecords } from './../actions';
+import AERecordList from './AERecordList';
 
 class AERecords extends React.Component {
 
@@ -14,7 +13,7 @@ class AERecords extends React.Component {
   }
 
   componentWillMount() {
-    //select default tab when loading component
+    // select default tab when loading component
     this.props.dispatch(selectTab(this.props.tabs[0].id));
   }
 
@@ -24,6 +23,7 @@ class AERecords extends React.Component {
 
   render() {
 
+    // fetch data for selected tab, only when it is not present in the redux store
     if(this.props.selectedTab && this.props.fetched === false) {
       let index = this.props.tabs.findIndex(item => item.id === this.props.selectedTab);
       this.props.dispatch(fetchRecords(this.props.tabs[index]));
@@ -37,21 +37,21 @@ class AERecords extends React.Component {
       <div>
         <div className="tabs">
           <div className={tab1Class}
-               data-tab={this.props.tabs[0].id}
-               data-index="0"
-               onClick={this.handleChangeTab}>
+              data-tab={this.props.tabs[0].id}
+              data-index="0"
+              onClick={this.handleChangeTab}>
                {this.props.tabs[0].label}
           </div>
           <div className={tab2Class}
-               data-tab={this.props.tabs[1].id}
-               data-index="1"
-               onClick={this.handleChangeTab}>
+              data-tab={this.props.tabs[1].id}
+              data-index="1"
+              onClick={this.handleChangeTab}>
                {this.props.tabs[1].label}
           </div>
           <div className={tab3Class}
-               data-tab={this.props.tabs[2].id}
-               data-index="2"
-               onClick={this.handleChangeTab}>
+              data-tab={this.props.tabs[2].id}
+              data-index="2"
+              onClick={this.handleChangeTab}>
                {this.props.tabs[2].label}
           </div>
         </div>
@@ -59,7 +59,7 @@ class AERecords extends React.Component {
       </div>
     );
   }
-};
+}
 
 AERecords.propTypes = {
   tabs: PropTypes.array,

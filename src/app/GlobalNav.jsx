@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/images/title.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/images/title.svg';
 // import styles from "../styles/footer.scss";
 
 function GlobalNav() {

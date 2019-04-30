@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../styles/adverseEvents/AESource.scss";
+import React from 'react';
+import styles from '../styles/adverseEvents/AESource.scss';
 import { Doughnut } from 'react-chartjs-2';
 
 function AESource() {
@@ -9,7 +9,7 @@ function AESource() {
   const chartData = {
       datasets: [
         {
-          backgroundColor: ["#3DDAD7", "#2A93D5", "#135589", "#57E299", "#AED9DA"],
+          backgroundColor: ['#3DDAD7', '#2A93D5', '#135589', '#57E299', '#AED9DA'],
           data: [529141, 170966, 150966, 17966, 5000]
         }
       ],

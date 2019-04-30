@@ -1,20 +1,28 @@
-import React from "react";
-import { connect } from "react-redux";
-import styles from "../styles/adverseEvents/adverseEvents.scss";
-import constants from "./../constants";
-const { tabs } = constants;
-import GlobalNav from "../app/GlobalNav";
-import AEHeader from "./AEHeader";
-import AELinechart from "./AELinechart";
-import AESeriousness from "./AESeriousness";
-import AESource from "./AESource";
-import AERecords from "./AERecords";
-import Footer from "../app/Footer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import styles from '../styles/adverseEvents/adverseEvents.scss';
+import constants from './../constants';
+const { tabs, timeData } = constants;
+import { fetchTimeData } from './../actions';
+import GlobalNav from '../app/GlobalNav';
+import AEHeader from './AEHeader';
+import AELinechart from './AELinechart';
+import AESeriousness from './AESeriousness';
+import AESource from './AESource';
+import AERecords from './AERecords';
+import Footer from '../app/Footer';
 
 class AEfood extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentWillMount() {
-    //console.log("Is Mounting!");
+    if(!this.props.timesFetched) {
+      this.props.dispatch(fetchTimeData(timeData.adverseEvents.food.id, timeData.adverseEvents.food.endpoint));
+    }
   }
 
   render() {
@@ -25,7 +33,10 @@ class AEfood extends React.Component {
         <AEHeader/>
         <div className="block-grid">
           <div className="one report-item">
-            <AELinechart/>
+            <AELinechart title={timeData.adverseEvents.food.title}
+                         yaxis={timeData.adverseEvents.food.yaxis}
+                         labels={this.props.labels}
+                         counts={this.props.counts}/>
           </div>
           <div className="two report-item">
             <AESeriousness/>
@@ -43,5 +54,20 @@ class AEfood extends React.Component {
   }
 }
 
+AEfood.propTypes = {
+  timesFetched: PropTypes.bool,
+  labels: PropTypes.array,
+  counts: PropTypes.array
+};
 
-export default AEfood;
+const mapStateToProps = state => {
+
+  return {
+    timesFetched: state.timeData.aeFood.retrieved,
+    labels: state.timeData.aeFood.data.labels,
+    counts: state.timeData.aeFood.data.counts
+  };
+
+}
+
+export default connect(mapStateToProps)(AEfood);

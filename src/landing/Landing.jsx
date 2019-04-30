@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "../styles/landing/landing.scss";
-import LandingNav from "./LandingNav";
-import Footer from "../app/Footer";
-import logo from "../assets/images/title.svg";
-import banner from "../assets/images/api_banner.jpg";
-import article1 from "../assets/images/article1.png";
-import article2 from "../assets/images/article2.png";
-import article3 from "../assets/images/article3.png";
-import article4 from "../assets/images/article4.png";
+import React from 'react';
+import styles from '../styles/landing/landing.scss';
+import LandingNav from './LandingNav';
+import Footer from '../app/Footer';
+import logo from '../assets/images/title.svg';
+import banner from '../assets/images/api_banner.jpg';
+import article1 from '../assets/images/article1.png';
+import article2 from '../assets/images/article2.png';
+import article3 from '../assets/images/article3.png';
+import article4 from '../assets/images/article4.png';
 
 
 function Landing() {
@@ -29,15 +29,18 @@ function Landing() {
         </div>
         <div className="article">
           <img src={article2}/>
-          <p>Lorem ipsum dolor sit amet</p>
+          <p>Lorem ipsum dolor
+sit amet</p>
         </div>
         <div className="article">
           <img src={article3}/>
-          <p>Lorem ipsum dolor sit amet</p>
+          <p>Lorem ipsum dolor
+sit amet</p>
         </div>
         <div className="article">
           <img src={article4}/>
-          <p>Lorem ipsum dolor sit amet</p>
+          <p>Lorem ipsum dolor
+sit amet</p>
         </div>
       </div>
       <Footer />

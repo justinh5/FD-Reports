@@ -1,17 +1,15 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
 
-function AELinechart() {
-
-    const d = [600, 700, 800, 835, 1100, 1005, 1250, 1150, 983, 976, 950, 945, 980, 1003, 1200, 1150];
-    const db = [100, 100, 250, 200, 205, 320, 450, 500];
+function AELinechart(props) {
 
     const chartData = {
-      labels: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+      labels: props.labels,
       datasets: [{
         backgroundColor: 'rgb(42, 147, 213, 0.2)',
         borderColor: 'rgb(42, 147, 213)',
-        data: db
+        data: props.counts
       }]
     };
 
@@ -23,13 +21,13 @@ function AELinechart() {
       },
       title: {
           display: true,
-          text: 'Total Adverse Event Reports Since 2004'
+          text: props.title
       },
       scales: {
           yAxes: [{
               scaleLabel: {
                 display: true,
-                labelString: 'Drug adverse event reports'
+                labelString: props.yaxis
               },
               ticks: {
                   beginAtZero: true
@@ -50,6 +48,13 @@ function AELinechart() {
     </div>
   );
 }
+
+AELinechart.propTypes = {
+  title: PropTypes.string,
+  yaxis: PropTypes.string,
+  labels: PropTypes.array,
+  counts: PropTypes.array
+};
 
 
 export default AELinechart;
