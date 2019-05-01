@@ -2,29 +2,29 @@
 export const timeData = {
   adverseEvents: {
     food: {
-      id: 'aeFood',
+      category: 'food',
       endpoint: 'food/event.json?count=date_created'
     },
     drugs: {
-      id: 'aeDrugs',
+      category: 'drugs',
     },
     devices: {
-      id: 'aeDevices',
+      category: 'devices',
     }
   },
   recalls: {
     food: {
-      id: 'recallsFood',
+      category: 'food',
       setA: 'Report Date',
       setB: 'Termination Date',
       endpointA: 'food/enforcement.json?count=report_date',
       endpointB: 'food/enforcement.json?count=termination_date'
     },
     drugs: {
-      id: 'aeFood',
+      category: 'drugs',
     },
     devices: {
-      id: 'aeFood',
+      category: 'devices',
     }
   }
 };

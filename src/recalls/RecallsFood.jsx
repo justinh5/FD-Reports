@@ -21,7 +21,7 @@ class Recallsfood extends React.Component {
 
   componentWillMount() {
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchRecallTimeData(timeData.recalls.food.id,
+      this.props.dispatch(fetchRecallTimeData(timeData.recalls.food.category,
                                               timeData.recalls.food.endpointA,
                                               timeData.recalls.food.endpointB));
     }
@@ -64,10 +64,10 @@ Recallsfood.propTypes = {
 const mapStateToProps = state => {
 
   return {
-    timesFetched: state.timeData.recallsFood.retrieved,
-    labels: state.timeData.recallsFood.data.labels,
-    countsA: state.timeData.recallsFood.data.countsA,
-    countsB: state.timeData.recallsFood.data.countsB
+    timesFetched: state.recalls.food.timeData.retrieved,
+    labels: state.recalls.food.timeData.data.labels,
+    countsA: state.recalls.food.timeData.data.countsA,
+    countsB: state.recalls.food.timeData.data.countsB
   };
 }
 

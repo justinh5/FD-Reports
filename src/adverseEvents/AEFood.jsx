@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from '../styles/adverseEvents/adverseEvents.scss';
 import constants from './../constants';
 const { tabs, timeData } = constants;
-import { fetchAETimeData } from './../actions';
+import { fetchAETimeData, selectTab, fetchRecords } from './../actions';
 import GlobalNav from '../app/GlobalNav';
 import AEHeader from './AEHeader';
 import AELinechart from './AELinechart';
@@ -17,28 +17,48 @@ class AEfood extends React.Component {
 
   constructor(props) {
     super(props);
-    this.page = 'Food';
+    this.page = 'food';
+    this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
   componentWillMount() {
+    // select default tab when loading component
+    this.props.dispatch(selectTab(tabs.food[0].id, this.page));
+
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchAETimeData(timeData.adverseEvents.food.id, timeData.adverseEvents.food.endpoint));
+      this.props.dispatch(fetchAETimeData(timeData.adverseEvents.food.category,
+                                          timeData.adverseEvents.food.endpoint));
     }
   }
 
+  handleChangeTab(event) {
+    this.props.dispatch(selectTab(event.target.attributes['data-tab'].value, this.page));
+  }
+
   render() {
+
+    // fetch data for selected tab, only when it is not present in the redux store
+    if(this.props.selectedTab && this.props.recordsFetched === false) {
+      let index = tabs.food.findIndex(item => item.id === this.props.selectedTab);
+      this.props.dispatch(fetchRecords(tabs.food[index], this.page));
+    }
+
     return (
       <div>
         <GlobalNav/>
-        <AEHeader page={this.page}/>
+        <AEHeader page={this.page.toUpperCase()}/>
         <div className="block-grid">
           <div className="one report-item">
-            <AELinechart title={`Total ${this.page} Adverse Event Reports Since 2004`}
+            <AELinechart title={`Total ${this.page.toUpperCase()} Adverse Event Reports Since 2004`}
                          labels={this.props.labels}
                          counts={this.props.counts}/>
           </div>
           <div className="four report-item">
-            <AERecords tabs={tabs.food}/>
+            <AERecords tabs={tabs.food}
+                       onTabChange={this.handleChangeTab}
+                       recordsFetched={this.props.recordsFetched}
+                       selectedTab={this.props.selectedTab}
+                       recordList={this.props.recordList}/>
           </div>
         </div>
         <Footer/>
@@ -50,16 +70,28 @@ class AEfood extends React.Component {
 AEfood.propTypes = {
   timesFetched: PropTypes.bool,
   labels: PropTypes.array,
-  counts: PropTypes.array
+  counts: PropTypes.array,
+  recordsFetched: PropTypes.bool,
+  selectedTab: PropTypes.string,
+  recordList: PropTypes.array
 };
 
 const mapStateToProps = state => {
 
-  return {
-    timesFetched: state.timeData.aeFood.retrieved,
-    labels: state.timeData.aeFood.data.labels,
-    counts: state.timeData.aeFood.data.counts
+  console.log(state);
+  let info = {
+    timesFetched: state.adverseEvents.food.timeData.retrieved,
+    labels: state.adverseEvents.food.timeData.data.labels,
+    counts: state.adverseEvents.food.timeData.data.counts,
+    recordsFetched: false,
+    selectedTab: state.adverseEvents.food.selectedTab,
+    recordList: []
   };
+  if(info.selectedTab) {
+    info.recordsFetched = state.adverseEvents.food.recordList[info.selectedTab].retrieved;
+    info.recordList = state.adverseEvents.food.recordList[info.selectedTab].data;
+  }
+  return info;
 }
 
 // <div className="two report-item">

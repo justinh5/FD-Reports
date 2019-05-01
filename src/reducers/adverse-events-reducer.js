@@ -3,16 +3,20 @@ const { defaultState, c } = constants;
 
 export default (state = defaultState.adverseEvents, action) => {
 
+  let section;
+  let newSection;
   let time;
   let newTimes;
   let record;
+  let recordList;
   let newRecord;
   let newState;
 
   switch (action.type) {
 
     case c.RECEIVE_AE_TIME_DATA:
-      time = state[action.id];
+      section = state[action.category];
+      time = state[action.category].timeData;
       newTimes = Object.assign({}, time,  {
         retrieved: true,
         data: {
@@ -20,25 +24,38 @@ export default (state = defaultState.adverseEvents, action) => {
           counts: action.counts
         }
       });
+      newSection = Object.assign({}, section, {
+        timeData: newTimes
+      });
       newState = Object.assign({}, state, {
-        [action.id]: newTimes
+        [action.category]: newSection
       });
       return newState;
 
     case c.SELECT_TAB:
-      return action.tabId;
-
-    case c.RESET_TAB:
-      return action.tabId;
-
-    case c.RECEIVE_RECORD:
-      record = state[action.recordId];
-      newRecord = Object.assign({}, record,  {
-        retrieved: true,
-        data: action.data
+      section = state[action.category];
+      newSection = Object.assign({}, section,  {
+        selectedTab: action.tabId
       });
       newState = Object.assign({}, state, {
-        [action.recordId]: newRecord
+        [action.category]: newSection
+      });
+      return newState;
+
+    case c.RECEIVE_RECORD:
+      section = state[action.category];
+      recordList = state[action.category].recordList;
+      newRecord = Object.assign({}, recordList,  {
+        [action.recordId]: {
+          retrieved: true,
+          data: action.data
+        }
+      });
+      newSection = Object.assign({}, section, {
+        recordList: newRecord
+      });
+      newState = Object.assign({}, state, {
+        [action.category]: newSection
       });
       return newState;
 

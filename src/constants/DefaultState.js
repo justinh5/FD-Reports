@@ -1,7 +1,4 @@
 
-
-
-
 export const defaultState = {
   adverseEvents: {
     food: {
