@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from '../styles/adverseEvents/adverseEvents.scss';
 import constants from './../constants';
 const { adverseEventsData } = constants;
-import { fetchAETimeData, selectTab, fetchRecords } from './../actions';
+import { fetchAETimeData, selectTab, fetchRecords, fetchSeriousness, fetchSources } from './../actions';
 import GlobalNav from '../app/GlobalNav';
 import AEHeader from './AEHeader';
 import AELinechart from './AELinechart';
@@ -27,6 +27,12 @@ class AEdrugs extends React.Component {
 
     if(!this.props.timesFetched) {
       this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), adverseEventsData.drugs.dateEndpoint));
+    }
+    if(!this.props.seriousnessFetched) {
+      this.props.dispatch(fetchSeriousness(this.page.toLowerCase(), adverseEventsData.drugs.seriousEndpoint));
+    }
+    if(!this.props.sourcesFetched) {
+      this.props.dispatch(fetchSources(this.page.toLowerCase(), adverseEventsData.drugs.sourcesEndpoint));
     }
   }
 
@@ -52,10 +58,10 @@ class AEdrugs extends React.Component {
                          times={this.props.times}/>
           </div>
           <div className="two report-item">
-            <AESeriousness/>
+            <AESeriousness seriousness={this.props.seriousness}/>
           </div>
           <div className="three report-item">
-            <AESource/>
+            <AESource sources={this.props.sources}/>
           </div>
           <div className="four report-item">
             <AERecords tabs={adverseEventsData.drugs.tabs}
@@ -73,8 +79,12 @@ class AEdrugs extends React.Component {
 
 AEdrugs.propTypes = {
   timesFetched: PropTypes.bool,
-  times: PropTypes.object,
+  sourcesFetched: PropTypes.bool,
   recordsFetched: PropTypes.bool,
+  sourcesFetched: PropTypes.bool,
+  times: PropTypes.object,
+  seriousness: PropTypes.array,
+  sources: PropTypes.array,
   selectedTab: PropTypes.string,
   recordList: PropTypes.array
 };
@@ -87,8 +97,8 @@ const mapStateToProps = state => {
     sourcesFetched: state.adverseEvents.drugs.sources.retrieved,
     recordsFetched: false,
     times: state.adverseEvents.drugs.timeData,
-    seriousness: state.adverseEvents.drugs.seriousness,
-    sources: state.adverseEvents.drugs.sources,
+    seriousness: state.adverseEvents.drugs.seriousness.counts,
+    sources: state.adverseEvents.drugs.sources.counts,
     selectedTab: state.adverseEvents.drugs.selectedTab,
     recordList: []
   };

@@ -31,12 +31,10 @@ export const defaultState = {
       },
       seriousness: {
         retrieved: false,
-        yes: 0,
-        no: 0
+        counts: []
       },
       sources: {
         retrieved: false,
-        labels: [],
         counts: []
       },
       selectedTab: null,

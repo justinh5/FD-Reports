@@ -28,6 +28,8 @@ export const adverseEventsData = {
   },
   drugs: {
     dateEndpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=receivedate',
+    seriousEndpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=serious',
+    sourcesEndpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=primarysource.qualification',
     tabs: [
       {
         id: 'drugClasses',

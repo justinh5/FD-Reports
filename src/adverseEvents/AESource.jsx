@@ -1,24 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from '../styles/adverseEvents/AESource.scss';
 import { Doughnut } from 'react-chartjs-2';
 
-function AESource() {
-
-  // 529141, 170966, 150966, 17966
+function AESource(props) {
 
   const chartData = {
       datasets: [
         {
           backgroundColor: ['#3DDAD7', '#2A93D5', '#135589', '#57E299', '#AED9DA'],
-          data: [529141, 170966, 150966, 17966, 5000]
+          data: props.sources
         }
       ],
       labels: [
-        'Consumer or non-health professional',
         'Pysician',
         'Other health professional',
         'Pharmacist',
-        'Lawyer'
+        'Lawyer',
+        'Consumer or non-health professional'
       ]
   };
 
@@ -67,5 +66,8 @@ function AESource() {
   );
 }
 
+AESource.propTypes = {
+  sources: PropTypes.array
+};
 
 export default AESource;

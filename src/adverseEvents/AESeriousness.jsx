@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from '../styles/adverseEvents/AESeriousness.scss';
 import { Doughnut } from 'react-chartjs-2';
 
-function AESeriousness() {
+function AESeriousness(props) {
 
   const chartData = {
       datasets: [
         {
           backgroundColor: ['#3DDAD7', '#2A93D5'],
-          data: [529141, 170966]
+          data: props.seriousness
         }
       ],
       labels: [
-        'Very serious',
-        'None of the above'
+        'Low',
+        'High'
       ]
   };
 
@@ -49,6 +50,10 @@ function AESeriousness() {
     </div>
   );
 }
+
+AESeriousness.propTypes = {
+  seriousness: PropTypes.array
+};
 
 
 export default AESeriousness;

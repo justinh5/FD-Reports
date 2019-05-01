@@ -5,8 +5,6 @@ export default (state = defaultState.adverseEvents, action) => {
 
   let section;
   let newSection;
-  let time;
-  let newTimes;
   let recordList;
   let newRecord;
   let newState;
@@ -15,14 +13,44 @@ export default (state = defaultState.adverseEvents, action) => {
 
     case c.RECEIVE_AE_TIME_DATA:
       section = state[action.category];
-      time = state[action.category].timeData;
-      newTimes = Object.assign({}, time,  {
+      let time = state[action.category].timeData;
+      let newTimes = Object.assign({}, time,  {
         retrieved: true,
         labels: action.labels,
         counts: action.counts
       });
       newSection = Object.assign({}, section, {
         timeData: newTimes
+      });
+      newState = Object.assign({}, state, {
+        [action.category]: newSection
+      });
+      return newState;
+
+    case c.RECEIVE_AE_SERIOUSNESS:
+      section = state[action.category];
+      let serious = state[action.category].seriousness;
+      let newSerious = Object.assign({}, serious,  {
+        retrieved: true,
+        counts: action.counts
+      });
+      newSection = Object.assign({}, section, {
+        seriousness: newSerious
+      });
+      newState = Object.assign({}, state, {
+        [action.category]: newSection
+      });
+      return newState;
+
+    case c.RECEIVE_AE_SOURCES:
+      section = state[action.category];
+      let sources = state[action.category].sources;
+      let newSources = Object.assign({}, sources,  {
+        retrieved: true,
+        counts: action.counts
+      });
+      newSection = Object.assign({}, section, {
+        sources: newSources
       });
       newState = Object.assign({}, state, {
         [action.category]: newSection

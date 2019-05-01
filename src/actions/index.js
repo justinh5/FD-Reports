@@ -30,6 +30,18 @@ export const receiveClasses = (category, class1, class2, class3, na) => ({
   na
 });
 
+export const receiveSeriousness = (category, counts) => ({
+  type: c.RECEIVE_AE_SERIOUSNESS,
+  category,
+  counts
+});
+
+export const receiveSources = (category, counts) => ({
+  type: c.RECEIVE_AE_SOURCES,
+  category,
+  counts
+});
+
 export const receiveAETimeData = (category, labels, counts) => ({
   type: c.RECEIVE_AE_TIME_DATA,
   category,
@@ -111,6 +123,47 @@ export function fetchClassData(category, endpoint) {
           }
         });
         dispatch(receiveClasses(category, class1, class2, class3, na));
+      } else {
+        console.log('No data found for this type of record!');
+      }
+    });
+  };
+}
+
+export function fetchSeriousness(category, endpoint) {
+  return function (dispatch) {
+    return fetch('https://api.fda.gov/' + endpoint).then(
+      response => response.json(),
+      error => console.log('An error occured.', error)
+    ).then(function(json) {
+      if (json.results.length > 0) {
+        let counts = [0, 0];
+        counts[0] = json.results[0].count;
+        counts[1] = json.results[1].count;
+        dispatch(receiveSeriousness(category, counts));
+      } else {
+        console.log('No data found for this type of record!');
+      }
+    });
+  };
+}
+
+export function fetchSources(category, endpoint) {
+  return function (dispatch) {
+    return fetch('https://api.fda.gov/' + endpoint).then(
+      response => response.json(),
+      error => console.log('An error occured.', error)
+    ).then(function(json) {
+      if (json.results.length > 0) {
+        let counts = [];
+        for(let i=1; i<6; ++i) {
+          json.results.forEach(item => {
+            if(item.term === i) {
+              counts.push(item.count);
+            }
+          });
+        }
+        dispatch(receiveSources(category, counts));
       } else {
         console.log('No data found for this type of record!');
       }
