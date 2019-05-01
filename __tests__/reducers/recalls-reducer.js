@@ -34,5 +34,31 @@ describe('Recall Reducer', () => {
     .toEqual(newObject);
   });
 
+  test('update state on receive status', () => {
+    const action = actions.receiveStatus('food', 5, 6, 7, 8);
+    const newObject = {
+      retrieved: true,
+      ongoing: 5,
+      completed: 6,
+      terminated: 7,
+      pending: 8
+    };
+    expect(recallReducer(defaultState.recalls, action).food.statusData)
+    .toEqual(newObject);
+  });
+
+  test('update state on receive class data', () => {
+    const action = actions.receiveClasses('food', 5, 6, 7, 8);
+    const newObject = {
+      retrieved: true,
+      class1: 5,
+      class2: 6,
+      class3: 7,
+      notClassed: 8
+    };
+    expect(recallReducer(defaultState.recalls, action).food.classes)
+    .toEqual(newObject);
+  });
+
 
 });

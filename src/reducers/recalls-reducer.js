@@ -49,12 +49,12 @@ export default (state = defaultState.recalls, action) => {
     case c.RECEIVE_RECALL_CLASSES:
       section = state[action.category];
       let classes = state[action.category].classes;
-      let newClass = Object.assign({}, status,  {
+      let newClass = Object.assign({}, classes,  {
         retrieved: true,
         class1: action.class1,
         class2: action.class2,
         class3: action.class3,
-        notClasses: action.na
+        notClassed: action.na
       });
       newSection = Object.assign({}, section, {
         classes: newClass
