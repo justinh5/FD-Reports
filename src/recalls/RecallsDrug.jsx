@@ -12,24 +12,24 @@ import RecallsStatus from './RecallsStatus';
 import RecallsClassifications from './RecallsClassifications';
 import Footer from '../app/Footer';
 
-class Recallsfood extends React.Component {
+class Recallsdrug extends React.Component {
 
   constructor(props) {
     super(props);
-    this.page = 'Food';
+    this.page = 'Drug';
   }
 
   componentWillMount() {
     if(!this.props.timesFetched) {
       this.props.dispatch(fetchRecallTimeData(this.page.toLowerCase(),
-                                              recallData.food.endpointA,
-                                              recallData.food.endpointB));
+                                              recallData.drug.endpointA,
+                                              recallData.drug.endpointB));
     }
     if(!this.props.statusFetched) {
-      this.props.dispatch(fetchStatusData(this.page.toLowerCase(), recallData.food.statusEndpoint));
+      this.props.dispatch(fetchStatusData(this.page.toLowerCase(), recallData.drug.statusEndpoint));
     }
     if(!this.props.classesFetched) {
-      this.props.dispatch(fetchClassData(this.page.toLowerCase(), recallData.food.classEndpoint));
+      this.props.dispatch(fetchClassData(this.page.toLowerCase(), recallData.drug.classEndpoint));
     }
   }
 
@@ -41,8 +41,8 @@ class Recallsfood extends React.Component {
         <div className="block-grid">
           <div className="one report-item">
             <RecallsLinechart title={`Total ${this.page} Recall Reports Since 2012`}
-                              setA="Report Date"
-                              setB="Termination Date"
+                              setA={recallData.drug.setA}
+                              setB={recallData.drug.setB}
                               times={this.props.times}/>
           </div>
           <div className="two report-item">
@@ -59,7 +59,7 @@ class Recallsfood extends React.Component {
   }
 }
 
-Recallsfood.propTypes = {
+Recallsdrug.propTypes = {
   statusFetched: PropTypes.bool,
   classesFetched: PropTypes.bool,
   timesFetched: PropTypes.bool,
@@ -71,14 +71,14 @@ Recallsfood.propTypes = {
 const mapStateToProps = state => {
 
   return {
-    timesFetched: state.recalls.food.timeData.retrieved,
-    times: state.recalls.food.timeData,
-    statusFetched: state.recalls.food.statusData.retrieved,
-    status: state.recalls.food.statusData,
-    classesFetched: state.recalls.food.classes.retrieved,
-    classes: state.recalls.food.classes
+    timesFetched: state.recalls.drug.timeData.retrieved,
+    times: state.recalls.drug.timeData,
+    statusFetched: state.recalls.drug.statusData.retrieved,
+    status: state.recalls.drug.statusData,
+    classesFetched: state.recalls.drug.classes.retrieved,
+    classes: state.recalls.drug.classes
   };
 }
 
 
-export default connect(mapStateToProps)(Recallsfood);
+export default connect(mapStateToProps)(Recallsdrug);

@@ -102,10 +102,48 @@ export const defaultState = {
       }
     },
     drug: {
-
+      timeData: {
+        retrieved: false,
+        labels: [],
+        countsA: [],
+        countsB: []
+      },
+      statusData: {
+        retrieved: false,
+        ongoing: 0,
+        completed: 0,
+        terminated: 0,
+        pending: 0
+      },
+      classes: {
+        retrieved: false,
+        class1: 0,
+        class2: 0,
+        class3: 0,
+        notClassed: 0
+      }
     },
     device: {
-
+      timeData: {
+        retrieved: false,
+        labels: [],
+        countsA: [],
+        countsB: []
+      },
+      statusData: {
+        retrieved: false,
+        ongoing: 0,
+        completed: 0,
+        terminated: 0,
+        pending: 0
+      },
+      classes: {
+        retrieved: false,
+        class1: 0,
+        class2: 0,
+        class3: 0,
+        notClassed: 0
+      }
     }
   }
 };

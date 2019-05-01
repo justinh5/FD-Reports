@@ -10,7 +10,7 @@ function RecallsHeader(props) {
     switch (img) {
       case 'Food':
         return food_icon;
-      case 'Drugs':
+      case 'Drug':
         return drug_icon;
       case 'Device':
         return device_icon;

@@ -74,7 +74,7 @@ export function fetchStatusData(category, endpoint) {
         const results = json.results;
         let ongoing = 0, completed = 0, terminated = 0, pending = 0;
         results.forEach(item => {
-          switch(item.term) {
+          switch(item.term.toLowerCase()) {
             case 'ongoing':
               ongoing += item.count;
               break;

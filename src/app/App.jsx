@@ -6,6 +6,8 @@ import AEFood from '../adverseEvents/AEFood';
 import AEDrug from '../adverseEvents/AEDrug';
 import AEDevice from '../adverseEvents/AEDevice';
 import RecallsFood from '../recalls/RecallsFood';
+import RecallsDrug from '../recalls/RecallsDrug';
+import RecallsDevice from '../recalls/RecallsDevice';
 import Error404 from './Error404';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route exact path='/AdverseEvents/Drug' component={AEDrug} />
           <Route exact path='/AdverseEvents/Device' component={AEDevice} />
           <Route exact path='/Recalls/Food' component={RecallsFood} />
+          <Route exact path='/Recalls/Drug' component={RecallsDrug} />
+          <Route exact path='/Recalls/Device' component={RecallsDevice} />
           <Route component={Error404} />
         </Switch>
       </div>

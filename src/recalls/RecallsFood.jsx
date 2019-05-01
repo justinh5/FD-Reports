@@ -41,8 +41,8 @@ class Recallsfood extends React.Component {
         <div className="block-grid">
           <div className="one report-item">
             <RecallsLinechart title={`Total ${this.page} Recall Reports Since 2012`}
-                              setA="Report Date"
-                              setB="Termination Date"
+                              setA={recallData.food.setA}
+                              setB={recallData.food.setB}
                               times={this.props.times}/>
           </div>
           <div className="two report-item">
