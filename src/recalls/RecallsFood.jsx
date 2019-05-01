@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from '../styles/recalls/recalls.scss';
 import constants from './../constants';
-const { timeData } = constants;
+const { recallData } = constants;
 import { fetchRecallTimeData } from './../actions';
 import GlobalNav from '../app/GlobalNav';
 import RecallsHeader from './RecallsHeader';
@@ -22,9 +22,15 @@ class Recallsfood extends React.Component {
   componentWillMount() {
     if(!this.props.timesFetched) {
       this.props.dispatch(fetchRecallTimeData(this.page.toLowerCase(),
-                                              timeData.recalls.food.endpointA,
-                                              timeData.recalls.food.endpointB));
+                                              recallData.food.endpointA,
+                                              recallData.food.endpointB));
     }
+    if(!this.props.statusFetched) {
+      // this.props.dispatch(fetchStatusData(this.page.toLowerCase(), recallData.food.endpointA));
+
+
+    }
+
   }
 
   render() {
@@ -36,8 +42,8 @@ class Recallsfood extends React.Component {
           <div className="one report-item">
             <RecallsLinechart title={`Total ${this.page} Recall Reports Since 2012`}
                          labels={this.props.labels}
-                         setA={timeData.recalls.food.setA}
-                         setB={timeData.recalls.food.setB}
+                         setA={recallData.food.setA}
+                         setB={recallData.food.setB}
                          countsA={this.props.countsA}
                          countsB={this.props.countsB}/>
           </div>
@@ -67,7 +73,9 @@ const mapStateToProps = state => {
     timesFetched: state.recalls.food.timeData.retrieved,
     labels: state.recalls.food.timeData.data.labels,
     countsA: state.recalls.food.timeData.data.countsA,
-    countsB: state.recalls.food.timeData.data.countsB
+    countsB: state.recalls.food.timeData.data.countsB,
+
+    statusFetched: state.recalls.food.statusData.retrieved
   };
 }
 

@@ -1,11 +1,11 @@
 import * as types from './ActionTypes';
 import { defaultState } from './DefaultState';
-import { tabData } from './TabData';
-import { timeData } from './TimeData';
+import { adverseEventsData } from './AdverseEventsData';
+import { recallData } from './RecallData';
 
 export default {
   defaultState: defaultState,
   c: types,
-  tabs: tabData,
-  timeData: timeData
+  adverseEventsData: adverseEventsData,
+  recallData: recallData
 };

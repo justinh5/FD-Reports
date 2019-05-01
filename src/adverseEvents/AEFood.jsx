@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from '../styles/adverseEvents/adverseEvents.scss';
 import constants from './../constants';
-const { tabs, timeData } = constants;
+const { adverseEventsData } = constants;
 import { fetchAETimeData, selectTab, fetchRecords } from './../actions';
 import GlobalNav from '../app/GlobalNav';
 import AEHeader from './AEHeader';
@@ -23,10 +23,10 @@ class AEfood extends React.Component {
 
   componentWillMount() {
     // select default tab when loading component
-    this.props.dispatch(selectTab(tabs.food[0].id, this.page.toLowerCase()));
+    this.props.dispatch(selectTab(adverseEventsData.food.tabs[0].id, this.page.toLowerCase()));
 
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), timeData.adverseEvents.food.endpoint));
+      this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), adverseEventsData.food.dateEndpoint));
     }
   }
 
@@ -38,8 +38,8 @@ class AEfood extends React.Component {
 
     // fetch data for selected tab, only when it is not present in the redux store
     if(this.props.selectedTab && this.props.recordsFetched === false) {
-      let index = tabs.food.findIndex(item => item.id === this.props.selectedTab);
-      this.props.dispatch(fetchRecords(tabs.food[index], this.page.toLowerCase()));
+      let index = adverseEventsData.food.tabs.findIndex(item => item.id === this.props.selectedTab);
+      this.props.dispatch(fetchRecords(adverseEventsData.food.tabs[index], this.page.toLowerCase()));
     }
 
     return (
@@ -53,7 +53,7 @@ class AEfood extends React.Component {
                          counts={this.props.counts}/>
           </div>
           <div className="four report-item">
-            <AERecords tabs={tabs.food}
+            <AERecords tabs={adverseEventsData.food.tabs}
                        onTabChange={this.handleChangeTab}
                        recordsFetched={this.props.recordsFetched}
                        selectedTab={this.props.selectedTab}
@@ -76,7 +76,7 @@ AEfood.propTypes = {
 };
 
 const mapStateToProps = state => {
-  
+
   let info = {
     timesFetched: state.adverseEvents.food.timeData.retrieved,
     labels: state.adverseEvents.food.timeData.data.labels,
