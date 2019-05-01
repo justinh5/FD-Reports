@@ -55,6 +55,29 @@ export const adverseEventsData = {
     ]
   },
   devices: {
-
+    dateEndpoint: 'device/event.json?count=date_received',
+    tabs: [
+      {
+        id: 'devices',
+        tabIndex: 0,
+        type: 'devices',
+        label: 'Devices',
+        endpoint: 'device/event.json?count=device.generic_name.exact'
+      },
+      {
+        id: 'typesOfEvents',
+        tabIndex: 1,
+        type: 'devices',
+        label: 'Types of Events',
+        endpoint: 'device/event.json?count=event_type.exact'
+      },
+      {
+        id: 'manufacturerState',
+        tabIndex: 2,
+        type: 'devices',
+        label: 'Manufacturer State',
+        endpoint: 'device/event.json?count=manufacturer_g1_state'
+      }
+    ]
   }
 };

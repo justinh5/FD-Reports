@@ -63,15 +63,15 @@ export const defaultState = {
       },
       selectedTab: null,
       recordList: {
-        productTypes: {
+        devices: {
           retrieved: false,
           data: []
         },
-        reportedOutcomes: {
+        typesOfEvents: {
           retrieved: false,
           data: []
         },
-        reportedReactions: {
+        manufacturerState: {
           retrieved: false,
           data: []
         }
@@ -82,11 +82,9 @@ export const defaultState = {
     food: {
       timeData: {
         retrieved: false,
-        data: {
-          labels: [],
-          countsA: [],
-          countsB: []
-        }
+        labels: [],
+        countsA: [],
+        countsB: []
       },
       statusData: {
         retrieved: false,

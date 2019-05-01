@@ -20,6 +20,12 @@ describe('Adverse Event Reducer', () => {
     expect(adverseEventReducer({}, { type: null })).toEqual({});
   });
 
+  test('update state on select tab', () => {
+    const action = actions.selectTab('productType', 'food');
+    expect(adverseEventReducer(defaultState.adverseEvents, action).food.selectedTab)
+    .toEqual('productType');
+  });
+
   test('update state on receive record', () => {
     const action = actions.receiveRecord('productType', 'food', sampleRecordData);
     const newObject = {
@@ -35,9 +41,29 @@ describe('Adverse Event Reducer', () => {
     const newObject = {
       retrieved: true,
       labels: ['2004', '2005', '2006'],
-      counts: [50, 60, 70]
+      counts: sampleCountsA
     };
     expect(adverseEventReducer(defaultState.adverseEvents, action).food.timeData)
+    .toEqual(newObject);
+  });
+
+  test('update state on receive seriousness data', () => {
+    const action = actions.receiveSeriousness('drugs', sampleCountsA);
+    const newObject = {
+      retrieved: true,
+      counts: sampleCountsA
+    };
+    expect(adverseEventReducer(defaultState.adverseEvents, action).drugs.seriousness)
+    .toEqual(newObject);
+  });
+
+  test('update state on receive sources data', () => {
+    const action = actions.receiveSources('drugs', sampleCountsA);
+    const newObject = {
+      retrieved: true,
+      counts: sampleCountsA
+    };
+    expect(adverseEventReducer(defaultState.adverseEvents, action).drugs.sources)
     .toEqual(newObject);
   });
 
