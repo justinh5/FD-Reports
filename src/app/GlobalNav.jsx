@@ -21,16 +21,16 @@ function GlobalNav() {
           <li>
             <div className="dropdown">Drugs</div>
             <div className="dropdown-content">
-              <Link to="/AdverseEvents/Drugs">Adverse Events</Link>
-              <Link to="/Recalls/Drugs">Recalls</Link>
+              <Link to="/AdverseEvents/Drug">Adverse Events</Link>
+              <Link to="/Recalls/Drug">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
             <div className="dropdown">Devices</div>
             <div className="dropdown-content">
-              <Link to="/AdverseEvents/Devices">Adverse Events</Link>
-              <Link to="/Recalls/Devices">Recalls</Link>
+              <Link to="/AdverseEvents/Device">Adverse Events</Link>
+              <Link to="/Recalls/Device">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>

@@ -7,13 +7,13 @@ function RecallsLinechart(props) {
   const chartData = {
     labels: props.times.labels,
     datasets: [{
-      label: props.times.setB,
+      label: props.setB,
       backgroundColor: 'rgb(87, 226, 153, 0.3)',
       borderColor: 'rgb(87, 226, 153)',
       data: props.times.countsB
     },
     {
-      label: props.times.setA,
+      label: props.setA,
       backgroundColor: 'rgb(42, 147, 213, 0.2)',
       borderColor: 'rgb(42, 147, 213)',
       data: props.times.countsA
