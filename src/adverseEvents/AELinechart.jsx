@@ -27,7 +27,7 @@ function AELinechart(props) {
           yAxes: [{
               scaleLabel: {
                 display: true,
-                labelString: "Adverse event reports"
+                labelString: 'Adverse event reports'
               },
               ticks: {
                   beginAtZero: true

@@ -55,7 +55,7 @@ class AEdrugs extends React.Component {
         <div className="block-grid">
           <div className="one report-item">
             <AELinechart title={`Total ${this.page} Adverse Event Reports Since 2004`}
-                         times={this.props.times}/>
+                times={this.props.times}/>
           </div>
           <div className="two report-item">
             <AESeriousness seriousness={this.props.seriousness}/>
@@ -65,10 +65,10 @@ class AEdrugs extends React.Component {
           </div>
           <div className="four report-item">
             <AERecords tabs={adverseEventsData.drug.tabs}
-                       onTabChange={this.handleChangeTab}
-                       recordsFetched={this.props.recordsFetched}
-                       selectedTab={this.props.selectedTab}
-                       recordList={this.props.recordList}/>
+                onTabChange={this.handleChangeTab}
+                recordsFetched={this.props.recordsFetched}
+                selectedTab={this.props.selectedTab}
+                recordList={this.props.recordList}/>
           </div>
         </div>
         <Footer/>
@@ -81,7 +81,6 @@ AEdrugs.propTypes = {
   timesFetched: PropTypes.bool,
   sourcesFetched: PropTypes.bool,
   recordsFetched: PropTypes.bool,
-  sourcesFetched: PropTypes.bool,
   times: PropTypes.object,
   seriousness: PropTypes.array,
   sources: PropTypes.array,
@@ -107,6 +106,6 @@ const mapStateToProps = state => {
     info.recordList = state.adverseEvents.drug.recordList[info.selectedTab].data;
   }
   return info;
-}
+};
 
 export default connect(mapStateToProps)(AEdrugs);

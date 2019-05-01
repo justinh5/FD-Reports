@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectTab } from './../actions';
 import styles from '../styles/adverseEvents/AERecords.scss';
 import AERecordList from './AERecordList';
 

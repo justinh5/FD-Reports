@@ -41,16 +41,16 @@ class Recallsdrug extends React.Component {
         <div className="block-grid">
           <div className="one report-item">
             <RecallsLinechart title={`Total ${this.page} Recall Reports Since 2012`}
-                              setA={recallData.drug.setA}
-                              setB={recallData.drug.setB}
-                              times={this.props.times}/>
+                setA={recallData.drug.setA}
+                setB={recallData.drug.setB}
+                times={this.props.times}/>
           </div>
           <div className="two report-item">
             <RecallsStatus status={this.props.status}/>
           </div>
           <div className="three report-item">
             <RecallsClassifications title={`${this.page} Recall Classifications`}
-                                    classes={this.props.classes}/>
+                classes={this.props.classes}/>
           </div>
         </div>
         <Footer/>
@@ -78,7 +78,7 @@ const mapStateToProps = state => {
     classesFetched: state.recalls.drug.classes.retrieved,
     classes: state.recalls.drug.classes
   };
-}
+};
 
 
 export default connect(mapStateToProps)(Recallsdrug);

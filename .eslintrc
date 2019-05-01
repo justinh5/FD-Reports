@@ -26,6 +26,7 @@
     "react/prefer-stateless-function": 2,
     "react/jsx-indent-props": 2,
     "react/jsx-pascal-case": 2,
+    "no-console": "off",
     "linebreak-style": [
         "error",
         "unix"

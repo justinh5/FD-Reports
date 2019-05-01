@@ -34,7 +34,7 @@ function RecallsLinechart(props) {
         yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: "Recall enforcement reports"
+              labelString: 'Recall enforcement reports'
             },
             ticks: {
                 beginAtZero: true

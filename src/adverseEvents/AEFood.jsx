@@ -8,8 +8,6 @@ import { fetchAETimeData, selectTab, fetchRecords } from './../actions';
 import GlobalNav from '../app/GlobalNav';
 import AEHeader from './AEHeader';
 import AELinechart from './AELinechart';
-import AESeriousness from './AESeriousness';
-import AESource from './AESource';
 import AERecords from './AERecords';
 import Footer from '../app/Footer';
 
@@ -49,14 +47,14 @@ class AEfood extends React.Component {
         <div className="block-grid">
           <div className="one report-item">
             <AELinechart title={`Total ${this.page} Adverse Event Reports Since 2004`}
-                         times={this.props.times}/>
+                times={this.props.times}/>
           </div>
           <div className="four report-item">
             <AERecords tabs={adverseEventsData.food.tabs}
-                       onTabChange={this.handleChangeTab}
-                       recordsFetched={this.props.recordsFetched}
-                       selectedTab={this.props.selectedTab}
-                       recordList={this.props.recordList}/>
+                onTabChange={this.handleChangeTab}
+                recordsFetched={this.props.recordsFetched}
+                selectedTab={this.props.selectedTab}
+                recordList={this.props.recordList}/>
           </div>
         </div>
         <Footer/>
@@ -87,7 +85,7 @@ const mapStateToProps = state => {
     info.recordList = state.adverseEvents.food.recordList[info.selectedTab].data;
   }
   return info;
-}
+};
 
 
 export default connect(mapStateToProps)(AEfood);

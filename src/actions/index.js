@@ -233,7 +233,7 @@ export function fetchRecallTimeData(category, endpointA, endpointB) {
 export function fetchRecallSetB(category, resultsSetA, endpointB, dispatch) {
   return fetch('https://api.fda.gov/' + endpointB).then(
     response => response.json(),
-    error => console.log("An error occured.", error)).then(function(json) {
+    error => console.log('An error occured.', error)).then(function(json) {
       if (json.results.length > 0) {
         let labels = [], countsA = [], countsB = [];
         // Parse labels and counts for set A
@@ -260,7 +260,7 @@ export function fetchRecallSetB(category, resultsSetA, endpointB, dispatch) {
         });
         dispatch(receiveRecallTimeData(category, labels, countsA, countsB));
       } else {
-        console.log("No data found for this type of record!")
+        console.log('No data found for this type of record!');
       }
   });
 }
