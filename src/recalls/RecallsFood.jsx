@@ -21,7 +21,7 @@ class Recallsfood extends React.Component {
 
   componentWillMount() {
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchRecallTimeData(timeData.recalls.food.category,
+      this.props.dispatch(fetchRecallTimeData(this.page.toLowerCase(),
                                               timeData.recalls.food.endpointA,
                                               timeData.recalls.food.endpointB));
     }

@@ -3,27 +3,32 @@ const { defaultState, c } = constants;
 
 export default (state = defaultState.recalls, action) => {
 
+  let section;
+  let newSection;
   let time;
   let newTimes;
-  let record;
   let newRecord;
   let newState;
 
   switch (action.type) {
 
     case c.RECEIVE_RECALL_TIME_DATA:
-      // time = state[action.category];
-      // newTimes = Object.assign({}, time,  {
-      //   retrieved: true,
-      //   data: {
-      //     labels: action.labels,
-      //     countsA: action.countsA,
-      //     countsB: action.countsB
-      //   }
-      // });
-      // newState = Object.assign({}, state, {
-      //   [action.category]: newTimes
-      // });
+      section = state[action.category];
+      time = state[action.category].timeData;
+      newTimes = Object.assign({}, time,  {
+        retrieved: true,
+        data: {
+          labels: action.labels,
+          countsA: action.countsA,
+          countsB: action.countsB
+        }
+      });
+      newSection = Object.assign({}, section, {
+        timeData: newTimes
+      });
+      newState = Object.assign({}, state, {
+        [action.category]: newSection
+      });
       return newState;
 
     default:

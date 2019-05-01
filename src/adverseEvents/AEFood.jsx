@@ -17,22 +17,21 @@ class AEfood extends React.Component {
 
   constructor(props) {
     super(props);
-    this.page = 'food';
+    this.page = 'Food';
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
   componentWillMount() {
     // select default tab when loading component
-    this.props.dispatch(selectTab(tabs.food[0].id, this.page));
+    this.props.dispatch(selectTab(tabs.food[0].id, this.page.toLowerCase()));
 
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchAETimeData(timeData.adverseEvents.food.category,
-                                          timeData.adverseEvents.food.endpoint));
+      this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), timeData.adverseEvents.food.endpoint));
     }
   }
 
   handleChangeTab(event) {
-    this.props.dispatch(selectTab(event.target.attributes['data-tab'].value, this.page));
+    this.props.dispatch(selectTab(event.target.attributes['data-tab'].value, this.page.toLowerCase()));
   }
 
   render() {
@@ -40,16 +39,16 @@ class AEfood extends React.Component {
     // fetch data for selected tab, only when it is not present in the redux store
     if(this.props.selectedTab && this.props.recordsFetched === false) {
       let index = tabs.food.findIndex(item => item.id === this.props.selectedTab);
-      this.props.dispatch(fetchRecords(tabs.food[index], this.page));
+      this.props.dispatch(fetchRecords(tabs.food[index], this.page.toLowerCase()));
     }
 
     return (
       <div>
         <GlobalNav/>
-        <AEHeader page={this.page.toUpperCase()}/>
+        <AEHeader page={this.page}/>
         <div className="block-grid">
           <div className="one report-item">
-            <AELinechart title={`Total ${this.page.toUpperCase()} Adverse Event Reports Since 2004`}
+            <AELinechart title={`Total ${this.page} Adverse Event Reports Since 2004`}
                          labels={this.props.labels}
                          counts={this.props.counts}/>
           </div>
@@ -77,8 +76,7 @@ AEfood.propTypes = {
 };
 
 const mapStateToProps = state => {
-
-  console.log(state);
+  
   let info = {
     timesFetched: state.adverseEvents.food.timeData.retrieved,
     labels: state.adverseEvents.food.timeData.data.labels,

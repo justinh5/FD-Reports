@@ -1,9 +1,9 @@
-import recordListReducer from './../../src/reducers/record-list-reducer';
+import adverseEventReducer from './../../src/reducers/adverse-events-reducer';
 import constants from './../../src/constants';
 import * as actions from './../../src/actions';
 const { defaultState, c } = constants;
 
-describe('recordListReducer', () => {
+describe('Adverse Event Reducer', () => {
 
   const sampleRecordData = [
     {
@@ -17,21 +17,21 @@ describe('recordListReducer', () => {
   const sampleCountsB = [80, 90, 100];
 
   test('Should return default state if no action type is recognized', () => {
-    expect(recordListReducer({}, { type: null })).toEqual({});
+    expect(adverseEventReducer({}, { type: null })).toEqual({});
   });
 
   test('update state on receive record', () => {
-    const action = actions.receiveRecord('productType', sampleRecordData);
+    const action = actions.receiveRecord('productType', 'food', sampleRecordData);
     const newObject = {
       retrieved: true,
       data: sampleRecordData
     };
-    expect(recordListReducer(defaultState.recordList, action)[action.recordId])
+    expect(adverseEventReducer(defaultState.adverseEvents, action).food.recordList[action.recordId])
     .toEqual(newObject);
   });
 
-  test('update adverse event state on receive time data', () => {
-    const action = actions.receiveAETimeData('aeFood', sampleLabels, sampleCountsA);
+  test('update state on receive time data', () => {
+    const action = actions.receiveAETimeData('food', sampleLabels, sampleCountsA);
     const newObject = {
       retrieved: true,
       data: {
@@ -39,7 +39,7 @@ describe('recordListReducer', () => {
         counts: [50, 60, 70]
       }
     };
-    expect(timeDataReducer(defaultState.timeData, action)[action.id])
+    expect(adverseEventReducer(defaultState.adverseEvents, action).food.timeData)
     .toEqual(newObject);
   });
 
