@@ -5,18 +5,18 @@ import { Line } from 'react-chartjs-2';
 function RecallsLinechart(props) {
 
   const chartData = {
-    labels: props.labels,
+    labels: props.times.labels,
     datasets: [{
-      label: props.setB,
+      label: props.times.setB,
       backgroundColor: 'rgb(87, 226, 153, 0.3)',
       borderColor: 'rgb(87, 226, 153)',
-      data: props.countsB,
+      data: props.times.countsB
     },
     {
-      label: props.setA,
+      label: props.times.setA,
       backgroundColor: 'rgb(42, 147, 213, 0.2)',
       borderColor: 'rgb(42, 147, 213)',
-      data: props.countsA
+      data: props.times.countsA
     }]
   };
 
@@ -58,8 +58,7 @@ function RecallsLinechart(props) {
 
 RecallsLinechart.propTypes = {
   title: PropTypes.string,
-  labels: PropTypes.array,
-  counts: PropTypes.array
+  times: PropTypes.object
 };
 
 

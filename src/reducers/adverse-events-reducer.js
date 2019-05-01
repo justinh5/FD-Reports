@@ -18,10 +18,8 @@ export default (state = defaultState.adverseEvents, action) => {
       time = state[action.category].timeData;
       newTimes = Object.assign({}, time,  {
         retrieved: true,
-        data: {
-          labels: action.labels,
-          counts: action.counts
-        }
+        labels: action.labels,
+        counts: action.counts
       });
       newSection = Object.assign({}, section, {
         timeData: newTimes

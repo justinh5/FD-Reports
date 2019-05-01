@@ -24,11 +24,9 @@ describe('Recall Reducer', () => {
     const action = actions.receiveRecallTimeData('food', sampleLabels, sampleCountsA, sampleCountsB);
     const newObject = {
       retrieved: true,
-      data: {
-        labels: ['2004', '2005', '2006'],
-        countsA: [50, 60, 70],
-        countsB: [80, 90, 100]
-      }
+      labels: ['2004', '2005', '2006'],
+      countsA: [50, 60, 70],
+      countsB: [80, 90, 100]
     };
     expect(recallReducer(defaultState.recalls, action).food.timeData)
     .toEqual(newObject);

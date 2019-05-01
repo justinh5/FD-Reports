@@ -5,11 +5,11 @@ import { Line } from 'react-chartjs-2';
 function AELinechart(props) {
 
     const chartData = {
-      labels: props.labels,
+      labels: props.times.labels,
       datasets: [{
         backgroundColor: 'rgb(42, 147, 213, 0.2)',
         borderColor: 'rgb(42, 147, 213)',
-        data: props.counts
+        data: props.times.counts
       }]
     };
 
@@ -51,8 +51,7 @@ function AELinechart(props) {
 
 AELinechart.propTypes = {
   title: PropTypes.string,
-  labels: PropTypes.array,
-  counts: PropTypes.array
+  times: PropTypes.object
 };
 
 

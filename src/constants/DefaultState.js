@@ -4,6 +4,60 @@ export const defaultState = {
     food: {
       timeData: {
         retrieved: false,
+        labels: [],
+        counts: []
+      },
+      selectedTab: null,
+      recordList: {
+        productTypes: {
+          retrieved: false,
+          data: []
+        },
+        reportedOutcomes: {
+          retrieved: false,
+          data: []
+        },
+        reportedReactions: {
+          retrieved: false,
+          data: []
+        }
+      }
+    },
+    drugs: {
+      timeData: {
+        retrieved: false,
+        labels: [],
+        counts: []
+      },
+      seriousness: {
+        retrieved: false,
+        yes: 0,
+        no: 0
+      },
+      sources: {
+        retrieved: false,
+        labels: [],
+        counts: []
+      },
+      selectedTab: null,
+      recordList: {
+        drugClasses: {
+          retrieved: false,
+          data: []
+        },
+        drugIndications: {
+          retrieved: false,
+          data: []
+        },
+        drugReactions: {
+          retrieved: false,
+          data: []
+        }
+      }
+    },
+    devices: {
+      timeData: {
+        retrieved: false,
         data: {
           labels: [],
           counts: []
@@ -24,12 +78,6 @@ export const defaultState = {
           data: []
         }
       }
-    },
-    drugs: {
-
-    },
-    devices: {
-
     }
   },
   recalls: {

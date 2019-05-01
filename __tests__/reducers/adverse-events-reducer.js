@@ -34,10 +34,8 @@ describe('Adverse Event Reducer', () => {
     const action = actions.receiveAETimeData('food', sampleLabels, sampleCountsA);
     const newObject = {
       retrieved: true,
-      data: {
-        labels: ['2004', '2005', '2006'],
-        counts: [50, 60, 70]
-      }
+      labels: ['2004', '2005', '2006'],
+      counts: [50, 60, 70]
     };
     expect(adverseEventReducer(defaultState.adverseEvents, action).food.timeData)
     .toEqual(newObject);

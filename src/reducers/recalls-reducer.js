@@ -14,11 +14,9 @@ export default (state = defaultState.recalls, action) => {
       let time = state[action.category].timeData;
       let newTimes = Object.assign({}, time,  {
         retrieved: true,
-        data: {
-          labels: action.labels,
-          countsA: action.countsA,
-          countsB: action.countsB
-        }
+        labels: action.labels,
+        countsA: action.countsA,
+        countsB: action.countsB
       });
       newSection = Object.assign({}, section, {
         timeData: newTimes

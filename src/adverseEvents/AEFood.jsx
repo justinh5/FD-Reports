@@ -49,8 +49,7 @@ class AEfood extends React.Component {
         <div className="block-grid">
           <div className="one report-item">
             <AELinechart title={`Total ${this.page} Adverse Event Reports Since 2004`}
-                         labels={this.props.labels}
-                         counts={this.props.counts}/>
+                         times={this.props.times}/>
           </div>
           <div className="four report-item">
             <AERecords tabs={adverseEventsData.food.tabs}
@@ -68,8 +67,7 @@ class AEfood extends React.Component {
 
 AEfood.propTypes = {
   timesFetched: PropTypes.bool,
-  labels: PropTypes.array,
-  counts: PropTypes.array,
+  times: PropTypes.object,
   recordsFetched: PropTypes.bool,
   selectedTab: PropTypes.string,
   recordList: PropTypes.array
@@ -79,8 +77,7 @@ const mapStateToProps = state => {
 
   let info = {
     timesFetched: state.adverseEvents.food.timeData.retrieved,
-    labels: state.adverseEvents.food.timeData.data.labels,
-    counts: state.adverseEvents.food.timeData.data.counts,
+    times: state.adverseEvents.food.timeData,
     recordsFetched: false,
     selectedTab: state.adverseEvents.food.selectedTab,
     recordList: []
@@ -91,13 +88,6 @@ const mapStateToProps = state => {
   }
   return info;
 }
-
-// <div className="two report-item">
-//   <AESeriousness/>
-// </div>
-// <div className="three report-item">
-//   <AESource/>
-// </div>
 
 
 export default connect(mapStateToProps)(AEfood);

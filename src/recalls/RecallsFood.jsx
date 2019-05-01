@@ -41,11 +41,7 @@ class Recallsfood extends React.Component {
         <div className="block-grid">
           <div className="one report-item">
             <RecallsLinechart title={`Total ${this.page} Recall Reports Since 2012`}
-                         labels={this.props.labels}
-                         setA={recallData.food.setA}
-                         setB={recallData.food.setB}
-                         countsA={this.props.countsA}
-                         countsB={this.props.countsB}/>
+                              times={this.props.times}/>
           </div>
           <div className="two report-item">
             <RecallsStatus status={this.props.status}/>
@@ -65,9 +61,7 @@ Recallsfood.propTypes = {
   statusFetched: PropTypes.bool,
   classesFetched: PropTypes.bool,
   timesFetched: PropTypes.bool,
-  labels: PropTypes.array,
-  countsA: PropTypes.array,
-  countsB: PropTypes.array,
+  times: PropTypes.object,
   status: PropTypes.object,
   classes: PropTypes.object
 };
@@ -76,9 +70,7 @@ const mapStateToProps = state => {
 
   return {
     timesFetched: state.recalls.food.timeData.retrieved,
-    labels: state.recalls.food.timeData.data.labels,
-    countsA: state.recalls.food.timeData.data.countsA,
-    countsB: state.recalls.food.timeData.data.countsB,
+    times: state.recalls.food.timeData,
     statusFetched: state.recalls.food.statusData.retrieved,
     status: state.recalls.food.statusData,
     classesFetched: state.recalls.food.classes.retrieved,
