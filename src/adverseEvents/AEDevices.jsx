@@ -17,16 +17,16 @@ class AEdevices extends React.Component {
 
   constructor(props) {
     super(props);
-    this.page = 'Food';
+    this.page = 'Device';
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
   componentWillMount() {
     // select default tab when loading component
-    this.props.dispatch(selectTab(adverseEventsData.food.tabs[0].id, this.page.toLowerCase()));
+    this.props.dispatch(selectTab(adverseEventsData.device.tabs[0].id, this.page.toLowerCase()));
 
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), adverseEventsData.food.dateEndpoint));
+      this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), adverseEventsData.device.dateEndpoint));
     }
   }
 
@@ -38,8 +38,8 @@ class AEdevices extends React.Component {
 
     // fetch data for selected tab, only when it is not present in the redux store
     if(this.props.selectedTab && this.props.recordsFetched === false) {
-      let index = adverseEventsData.food.tabs.findIndex(item => item.id === this.props.selectedTab);
-      this.props.dispatch(fetchRecords(adverseEventsData.food.tabs[index], this.page.toLowerCase()));
+      let index = adverseEventsData.device.tabs.findIndex(item => item.id === this.props.selectedTab);
+      this.props.dispatch(fetchRecords(adverseEventsData.device.tabs[index], this.page.toLowerCase()));
     }
 
     return (
@@ -48,11 +48,11 @@ class AEdevices extends React.Component {
         <AEHeader page={this.page}/>
         <div className="block-grid">
           <div className="one report-item">
-            <AELinechart title={`Total ${this.page} Adverse Event Reports Since 2004`}
+            <AELinechart title={`Total ${this.page} Adverse Event Reports Since 1991`}
                          times={this.props.times}/>
           </div>
           <div className="four report-item">
-            <AERecords tabs={adverseEventsData.food.tabs}
+            <AERecords tabs={adverseEventsData.device.tabs}
                        onTabChange={this.handleChangeTab}
                        recordsFetched={this.props.recordsFetched}
                        selectedTab={this.props.selectedTab}
@@ -76,15 +76,15 @@ AEdevices.propTypes = {
 const mapStateToProps = state => {
 
   let info = {
-    timesFetched: state.adverseEvents.food.timeData.retrieved,
-    times: state.adverseEvents.food.timeData,
+    timesFetched: state.adverseEvents.device.timeData.retrieved,
+    times: state.adverseEvents.device.timeData,
     recordsFetched: false,
-    selectedTab: state.adverseEvents.food.selectedTab,
+    selectedTab: state.adverseEvents.device.selectedTab,
     recordList: []
   };
   if(info.selectedTab) {
-    info.recordsFetched = state.adverseEvents.food.recordList[info.selectedTab].retrieved;
-    info.recordList = state.adverseEvents.food.recordList[info.selectedTab].data;
+    info.recordsFetched = state.adverseEvents.device.recordList[info.selectedTab].retrieved;
+    info.recordList = state.adverseEvents.device.recordList[info.selectedTab].data;
   }
   return info;
 }

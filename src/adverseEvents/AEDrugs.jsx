@@ -17,22 +17,22 @@ class AEdrugs extends React.Component {
 
   constructor(props) {
     super(props);
-    this.page = 'Drugs';
+    this.page = 'Drug';
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
   componentWillMount() {
     // select default tab when loading component
-    this.props.dispatch(selectTab(adverseEventsData.drugs.tabs[0].id, this.page.toLowerCase()));
+    this.props.dispatch(selectTab(adverseEventsData.drug.tabs[0].id, this.page.toLowerCase()));
 
     if(!this.props.timesFetched) {
-      this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), adverseEventsData.drugs.dateEndpoint));
+      this.props.dispatch(fetchAETimeData(this.page.toLowerCase(), adverseEventsData.drug.dateEndpoint));
     }
     if(!this.props.seriousnessFetched) {
-      this.props.dispatch(fetchSeriousness(this.page.toLowerCase(), adverseEventsData.drugs.seriousEndpoint));
+      this.props.dispatch(fetchSeriousness(this.page.toLowerCase(), adverseEventsData.drug.seriousEndpoint));
     }
     if(!this.props.sourcesFetched) {
-      this.props.dispatch(fetchSources(this.page.toLowerCase(), adverseEventsData.drugs.sourcesEndpoint));
+      this.props.dispatch(fetchSources(this.page.toLowerCase(), adverseEventsData.drug.sourcesEndpoint));
     }
   }
 
@@ -44,8 +44,8 @@ class AEdrugs extends React.Component {
 
     // fetch data for selected tab, only when it is not present in the redux store
     if(this.props.selectedTab && this.props.recordsFetched === false) {
-      let index = adverseEventsData.drugs.tabs.findIndex(item => item.id === this.props.selectedTab);
-      this.props.dispatch(fetchRecords(adverseEventsData.drugs.tabs[index], this.page.toLowerCase()));
+      let index = adverseEventsData.drug.tabs.findIndex(item => item.id === this.props.selectedTab);
+      this.props.dispatch(fetchRecords(adverseEventsData.drug.tabs[index], this.page.toLowerCase()));
     }
 
     return (
@@ -64,7 +64,7 @@ class AEdrugs extends React.Component {
             <AESource sources={this.props.sources}/>
           </div>
           <div className="four report-item">
-            <AERecords tabs={adverseEventsData.drugs.tabs}
+            <AERecords tabs={adverseEventsData.drug.tabs}
                        onTabChange={this.handleChangeTab}
                        recordsFetched={this.props.recordsFetched}
                        selectedTab={this.props.selectedTab}
@@ -92,19 +92,19 @@ AEdrugs.propTypes = {
 const mapStateToProps = state => {
 
   let info = {
-    timesFetched: state.adverseEvents.drugs.timeData.retrieved,
-    seriousnessFetched: state.adverseEvents.drugs.seriousness.retrieved,
-    sourcesFetched: state.adverseEvents.drugs.sources.retrieved,
+    timesFetched: state.adverseEvents.drug.timeData.retrieved,
+    seriousnessFetched: state.adverseEvents.drug.seriousness.retrieved,
+    sourcesFetched: state.adverseEvents.drug.sources.retrieved,
     recordsFetched: false,
-    times: state.adverseEvents.drugs.timeData,
-    seriousness: state.adverseEvents.drugs.seriousness.counts,
-    sources: state.adverseEvents.drugs.sources.counts,
-    selectedTab: state.adverseEvents.drugs.selectedTab,
+    times: state.adverseEvents.drug.timeData,
+    seriousness: state.adverseEvents.drug.seriousness.counts,
+    sources: state.adverseEvents.drug.sources.counts,
+    selectedTab: state.adverseEvents.drug.selectedTab,
     recordList: []
   };
   if(info.selectedTab) {
-    info.recordsFetched = state.adverseEvents.drugs.recordList[info.selectedTab].retrieved;
-    info.recordList = state.adverseEvents.drugs.recordList[info.selectedTab].data;
+    info.recordsFetched = state.adverseEvents.drug.recordList[info.selectedTab].retrieved;
+    info.recordList = state.adverseEvents.drug.recordList[info.selectedTab].data;
   }
   return info;
 }

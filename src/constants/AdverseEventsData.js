@@ -26,7 +26,7 @@ export const adverseEventsData = {
       }
     ]
   },
-  drugs: {
+  drug: {
     dateEndpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=receivedate',
     seriousEndpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=serious',
     sourcesEndpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=primarysource.qualification',
@@ -54,7 +54,7 @@ export const adverseEventsData = {
       }
     ]
   },
-  devices: {
+  device: {
     dateEndpoint: 'device/event.json?count=date_received',
     tabs: [
       {

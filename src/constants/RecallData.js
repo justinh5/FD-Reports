@@ -8,10 +8,10 @@ export const recallData = {
     statusEndpoint: 'food/enforcement.json?count=status',
     classEndpoint: 'food/enforcement.json?count=classification.exact'
   },
-  drugs: {
+  drug: {
 
   },
-  devices: {
+  device: {
 
   }
 };

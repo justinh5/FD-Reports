@@ -23,7 +23,7 @@ export const defaultState = {
         }
       }
     },
-    drugs: {
+    drug: {
       timeData: {
         retrieved: false,
         labels: [],
@@ -53,7 +53,7 @@ export const defaultState = {
         }
       }
     },
-    devices: {
+    device: {
       timeData: {
         retrieved: false,
         data: {
@@ -101,10 +101,10 @@ export const defaultState = {
         notClassed: 0
       }
     },
-    drugs: {
+    drug: {
 
     },
-    devices: {
+    device: {
 
     }
   }

@@ -48,22 +48,22 @@ describe('Adverse Event Reducer', () => {
   });
 
   test('update state on receive seriousness data', () => {
-    const action = actions.receiveSeriousness('drugs', sampleCountsA);
+    const action = actions.receiveSeriousness('drug', sampleCountsA);
     const newObject = {
       retrieved: true,
       counts: sampleCountsA
     };
-    expect(adverseEventReducer(defaultState.adverseEvents, action).drugs.seriousness)
+    expect(adverseEventReducer(defaultState.adverseEvents, action).drug.seriousness)
     .toEqual(newObject);
   });
 
   test('update state on receive sources data', () => {
-    const action = actions.receiveSources('drugs', sampleCountsA);
+    const action = actions.receiveSources('drug', sampleCountsA);
     const newObject = {
       retrieved: true,
       counts: sampleCountsA
     };
-    expect(adverseEventReducer(defaultState.adverseEvents, action).drugs.sources)
+    expect(adverseEventReducer(defaultState.adverseEvents, action).drug.sources)
     .toEqual(newObject);
   });
 

@@ -25,7 +25,7 @@ function AEHeader(props) {
       </div>
       <h1 className="subtitle">Adverse Events</h1>
       <div className="notice-container">
-        <em className="notice">Data released by the FDA for public use (2004 - present)</em>
+        <em className="notice">Data released by the FDA for public use (1991 - present)</em>
         <em className="notice">Do not rely on FD Reports to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.</em>
       </div>
     </div>
