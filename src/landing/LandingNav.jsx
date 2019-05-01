@@ -12,23 +12,23 @@ function LandingNav() {
             <div className="dropdown">Food</div>
             <div className="dropdown-content">
               <Link to="/AdverseEvents/Food">Adverse Events</Link>
-              <Link to="/page2">Recalls</Link>
+              <Link to="/Recalls/Food">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
             <div className="dropdown">Drugs</div>
             <div className="dropdown-content">
-              <Link to="/page1">Adverse Events</Link>
-              <Link to="/page2">Recalls</Link>
+              <Link to="/AdverseEvents/Drug">Adverse Events</Link>
+              <Link to="/Recalls/Drug">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>
           <li>
             <div className="dropdown">Devices</div>
             <div className="dropdown-content">
-              <Link to="/page1">Adverse Events</Link>
-              <Link to="/page2">Recalls</Link>
+              <Link to="/AdverseEvents/Device">Adverse Events</Link>
+              <Link to="/Recalls/Device">Recalls</Link>
             </div>
           </li>
           <div className="vertical-divider"></div>
