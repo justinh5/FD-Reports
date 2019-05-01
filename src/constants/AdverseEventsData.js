@@ -5,23 +5,20 @@ export const adverseEventsData = {
     tabs: [
       {
         id: 'productTypes',
-        tabIndex: 0,
-        type: 'food',
         label: 'Product Types',
+        description: 'The FDA industry name associated with the product.',
         endpoint: 'food/event.json?count=products.industry_name.exact'
       },
       {
         id: 'reportedOutcomes',
-        tabIndex: 1,
-        type: 'food',
         label: 'Reported Outcomes',
+        description: 'The outcome or consequence of the adverse event.',
         endpoint: 'food/event.json?count=outcomes.exact'
       },
       {
         id: 'reportedReactions',
-        tabIndex: 2,
-        type: 'food',
         label: 'Reported Reactions',
+        description: 'The reported age of the consumer at the time of the adverse event report.',
         endpoint: 'food/event.json?count=consumer.age'
       }
     ]
@@ -33,23 +30,20 @@ export const adverseEventsData = {
     tabs: [
       {
         id: 'drugClasses',
-        tabIndex: 0,
-        type: 'drugs',
         label: 'Drug Classes',
+        description: 'Established pharmacologic class associated with an approved indication of an active moiety (generic drug) that the FDA has determined to be scientifically valid and clinically meaningful.',
         endpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=patient.drug.openfda.pharm_class_epc.exact'
       },
       {
         id: 'drugIndications',
-        tabIndex: 1,
-        type: 'drugs',
         label: 'Drug Indications',
+        description: 'Indication for the drug’s use.',
         endpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=patient.drug.drugindication.exact'
       },
       {
         id: 'drugReactions',
-        tabIndex: 2,
-        type: 'drugs',
         label: 'Drug Reactions',
+        description: 'Patient reaction, as a MedDRA term. Note that these terms are encoded in British English. For instance, diarrhea is spelled diarrohea. MedDRA is a standardized medical terminology.',
         endpoint: 'drug/event.json?search=receivedate:[20040101+TO+20190426]&count=patient.reaction.reactionmeddrapt.exact'
       }
     ]
@@ -59,23 +53,20 @@ export const adverseEventsData = {
     tabs: [
       {
         id: 'devices',
-        tabIndex: 0,
-        type: 'devices',
         label: 'Devices',
+        description: 'The generic or common name of the suspect medical device or a generally descriptive name (e.g. urological catheter, heart pacemaker, patient restraint, etc.).',
         endpoint: 'device/event.json?count=device.generic_name.exact'
       },
       {
         id: 'typesOfEvents',
-        tabIndex: 1,
-        type: 'devices',
         label: 'Types of Events',
+        description: 'Outcomes associated with the adverse event.',
         endpoint: 'device/event.json?count=event_type.exact'
       },
       {
         id: 'manufacturerState',
-        tabIndex: 2,
-        type: 'devices',
         label: 'Manufacturer State',
+        description: 'Device manufacturer address state.',
         endpoint: 'device/event.json?count=manufacturer_g1_state'
       }
     ]

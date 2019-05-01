@@ -6,9 +6,26 @@ import AERecordList from './AERecordList';
 
 function AERecords(props) {
 
-  let tab1Class = props.selectedTab === props.tabs[0].id ? 'tab selected' : 'tab';
-  let tab2Class = props.selectedTab === props.tabs[1].id ? 'tab selected' : 'tab';
-  let tab3Class = props.selectedTab === props.tabs[2].id ? 'tab selected' : 'tab';
+  let tab1Class='tab', tab2Class='tab', tab3Class='tab';
+  let description='';
+
+  switch(props.selectedTab) {
+    case props.tabs[0].id:
+      tab1Class = 'tab selected';
+      description = props.tabs[0].description;
+      break;
+    case props.tabs[1].id:
+      tab2Class = 'tab selected';
+      description = props.tabs[1].description;
+      break;
+    case props.tabs[2].id:
+      tab3Class = 'tab selected';
+      description = props.tabs[2].description;
+      break;
+    default:
+      tab1Class = 'tab selected';
+      description = props.tabs[0].description;
+  }
 
   return (
     <div>
@@ -32,7 +49,8 @@ function AERecords(props) {
              {props.tabs[2].label}
         </div>
       </div>
-      <AERecordList recordList={props.recordList}/>
+      <AERecordList recordList={props.recordList}
+                    description={description}/>
     </div>
   );
 }

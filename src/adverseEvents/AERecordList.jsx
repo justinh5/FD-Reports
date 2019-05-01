@@ -8,6 +8,7 @@ function AERecordList(props) {
 
   return (
     <div className="record-container">
+      <p className="description">{props.description}</p>
       {props.recordList.map(function(item, index) {
         if(index < 10) {
           let w = Math.round((item.count / props.recordList[0].count)*100);
@@ -22,6 +23,7 @@ function AERecordList(props) {
 }
 
 AERecordList.propTypes = {
+  description: PropTypes.string,
   recordList: PropTypes.array
 };
 
