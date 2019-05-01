@@ -16,7 +16,7 @@ function Landing() {
     <div>
       <div className="logo-container">
         <img src={logo}/>
-        <h3>Food, Drug, and Device Adverse Events and Recalls</h3>
+        <h3 id="subtitle">Food, Drug, and Device Adverse Events and Recalls</h3>
       </div>
       <LandingNav/>
       <a href="https://open.fda.gov/" target="_blank">
