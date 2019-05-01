@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from '../styles/recalls/recalls.scss';
 import constants from './../constants';
 const { recallData } = constants;
-import { fetchRecallTimeData } from './../actions';
+import { fetchRecallTimeData, fetchStatusData, fetchClassData } from './../actions';
 import GlobalNav from '../app/GlobalNav';
 import RecallsHeader from './RecallsHeader';
 import RecallsLinechart from './RecallsLinechart';
@@ -26,11 +26,11 @@ class Recallsfood extends React.Component {
                                               recallData.food.endpointB));
     }
     if(!this.props.statusFetched) {
-      // this.props.dispatch(fetchStatusData(this.page.toLowerCase(), recallData.food.endpointA));
-
-
+      this.props.dispatch(fetchStatusData(this.page.toLowerCase(), recallData.food.statusEndpoint));
     }
-
+    if(!this.props.classesFetched) {
+      this.props.dispatch(fetchClassData(this.page.toLowerCase(), recallData.food.classEndpoint));
+    }
   }
 
   render() {
@@ -48,10 +48,11 @@ class Recallsfood extends React.Component {
                          countsB={this.props.countsB}/>
           </div>
           <div className="two report-item">
-            <RecallsStatus/>
+            <RecallsStatus status={this.props.status}/>
           </div>
           <div className="three report-item">
-            <RecallsClassifications title={`${this.page} Recall Classifications`}/>
+            <RecallsClassifications title={`${this.page} Recall Classifications`}
+                                    classes={this.props.classes}/>
           </div>
         </div>
         <Footer/>
@@ -61,10 +62,14 @@ class Recallsfood extends React.Component {
 }
 
 Recallsfood.propTypes = {
+  statusFetched: PropTypes.bool,
+  classesFetched: PropTypes.bool,
   timesFetched: PropTypes.bool,
   labels: PropTypes.array,
   countsA: PropTypes.array,
-  countsB: PropTypes.array
+  countsB: PropTypes.array,
+  status: PropTypes.object,
+  classes: PropTypes.object
 };
 
 const mapStateToProps = state => {
@@ -74,8 +79,10 @@ const mapStateToProps = state => {
     labels: state.recalls.food.timeData.data.labels,
     countsA: state.recalls.food.timeData.data.countsA,
     countsB: state.recalls.food.timeData.data.countsB,
-
-    statusFetched: state.recalls.food.statusData.retrieved
+    statusFetched: state.recalls.food.statusData.retrieved,
+    status: state.recalls.food.statusData,
+    classesFetched: state.recalls.food.classes.retrieved,
+    classes: state.recalls.food.classes
   };
 }
 

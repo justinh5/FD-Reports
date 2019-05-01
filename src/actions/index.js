@@ -12,6 +12,24 @@ export const resetTab = () => ({
   tabId: defaultState.selectedTab
 });
 
+export const receiveStatus = (category, ongoing, completed, terminated, pending) => ({
+  type: c.RECEIVE_RECALL_STATUS,
+  category,
+  ongoing,
+  completed,
+  terminated,
+  pending
+});
+
+export const receiveClasses = (category, class1, class2, class3, na) => ({
+  type: c.RECEIVE_RECALL_CLASSES,
+  category,
+  class1,
+  class2,
+  class3,
+  na
+});
+
 export const receiveAETimeData = (category, labels, counts) => ({
   type: c.RECEIVE_AE_TIME_DATA,
   category,
@@ -33,6 +51,72 @@ export const receiveRecord = (recordId, category, data) => ({
   category,
   data
 });
+
+export function fetchStatusData(category, endpoint) {
+  return function (dispatch) {
+    return fetch('https://api.fda.gov/' + endpoint).then(
+      response => response.json(),
+      error => console.log('An error occured.', error)
+    ).then(function(json) {
+      if (json.results.length > 0) {
+        const results = json.results;
+        let ongoing = 0, completed = 0, terminated = 0, pending = 0;
+        results.forEach(item => {
+          switch(item.term) {
+            case 'ongoing':
+              ongoing += item.count;
+              break;
+            case 'completed':
+              completed += item.count;
+              break;
+            case 'terminated':
+              terminated += item.count;
+              break;
+            case 'pending':
+              pending += item.count;
+              break;
+          }
+        });
+        dispatch(receiveStatus(category, ongoing, completed, terminated, pending));
+      } else {
+        console.log('No data found for this type of record!');
+      }
+    });
+  };
+}
+
+export function fetchClassData(category, endpoint) {
+  return function (dispatch) {
+    return fetch('https://api.fda.gov/' + endpoint).then(
+      response => response.json(),
+      error => console.log('An error occured.', error)
+    ).then(function(json) {
+      if (json.results.length > 0) {
+        const results = json.results;
+        let class1 = 0, class2 = 0, class3 = 0, na = 0;
+        results.forEach(item => {
+          switch(item.term) {
+            case 'Class I':
+              class1 += item.count;
+              break;
+            case 'Class II':
+              class2 += item.count;
+              break;
+            case 'Class III':
+              class3 += item.count;
+              break;
+            case 'Not Yet Classified':
+              na += item.count;
+              break;
+          }
+        });
+        dispatch(receiveClasses(category, class1, class2, class3, na));
+      } else {
+        console.log('No data found for this type of record!');
+      }
+    });
+  };
+}
 
 export function fetchRecords(record, category) {
   return function (dispatch) {

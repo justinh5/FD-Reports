@@ -7,8 +7,8 @@ function RecallsClassifications(props) {
   const chartData = {
       datasets: [
         {
-          backgroundColor: ['#2A93D5', '#135589', '#57E299', '#3DDAD7'],
-          data: [529141, 170966, 150966, 17966]
+          backgroundColor: ['#3DDAD7', '#2A93D5', '#135589', '#57E299'],
+          data: [props.classes.class1, props.classes.class2, props.classes.class3, props.classes.notClassed]
         }
       ],
       labels: [

@@ -46,7 +46,8 @@ export const defaultState = {
         retrieved: false,
         ongoing: 0,
         completed: 0,
-        terminated: 0
+        terminated: 0,
+        pending: 0
       },
       classes: {
         retrieved: false,

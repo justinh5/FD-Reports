@@ -7,7 +7,6 @@ export default (state = defaultState.adverseEvents, action) => {
   let newSection;
   let time;
   let newTimes;
-  let record;
   let recordList;
   let newRecord;
   let newState;
