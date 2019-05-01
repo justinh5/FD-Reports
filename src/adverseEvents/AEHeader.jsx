@@ -1,4 +1,5 @@
 import React from 'react';
+import Disclaimer from '../app/Disclaimer';
 import food_icon from '../assets/images/food_icon.svg';
 import drug_icon from '../assets/images/drug_icon.svg';
 import device_icon from '../assets/images/device_icon.svg';
@@ -24,10 +25,7 @@ function AEHeader(props) {
         <img src={imageType(props.page)}/>
       </div>
       <h1 className="subtitle">Adverse Events</h1>
-      <div className="notice-container">
-        <em className="notice">Data released by the FDA for public use (1991 - present)</em>
-        <em className="notice">Do not rely on FD Reports to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.</em>
-      </div>
+      <Disclaimer/>
     </div>
   );
 }

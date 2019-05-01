@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/landing/landing.scss';
+import Disclaimer from '../app/Disclaimer';
 import LandingNav from './LandingNav';
 import Footer from '../app/Footer';
 import logo from '../assets/images/title.svg';
@@ -19,6 +20,7 @@ function Landing() {
         <h3 id="subtitle">Food, Drug, and Device Adverse Events and Recalls</h3>
       </div>
       <LandingNav/>
+      <Disclaimer/>
       <a href="https://open.fda.gov/" target="_blank">
         <img id="banner" src={banner} alt="OpenFDA" />
       </a>

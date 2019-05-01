@@ -21,7 +21,6 @@ body {
   background-color: $background;
 }
 
-
 #react-app-root {
   height: 100vh;
   min-height: 100%;
@@ -45,8 +44,34 @@ em {
   font-family: "Times New Roman", Times, serif;
 }
 
-.footer-container {
+.disclaimer-container {
   text-align: center;
+  width: 75%;
+  margin: 3em auto 3em auto;
+
+  .disclaimer {
+    display: block;
+  }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    opacity: 0.6;
+    width: 30px;
+    margin-left: 10px;
+
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+
+  p {
+    font-weight: 600;
+  }
   width: 70%;
   margin: 7em auto 3em auto;
 }
@@ -73,6 +98,7 @@ em {
 
   li {
     display: inline-block;
+    padding-bottom: 10px;
 
     .dropdown {
       padding: 0 60px;
@@ -97,12 +123,27 @@ em {
       }
     }
 
+    &:before {
+      display:block;
+      content: '';
+      width: 50%;
+      margin: 0 auto;
+      border-bottom: solid 5px $primary_blue;
+      margin-bottom: 10px;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
     &:hover {
       cursor: pointer;
       transition: 0.5s;
 
       .dropdown-content {
         display: block;
+      }
+
+      &:before {
+        transform: scaleX(1);
       }
     }
   }
@@ -113,7 +154,6 @@ em {
     width: 1px;
     height: 25px;
   }
-
 }
 
 @media screen and (max-width: 1100px) {
@@ -122,14 +162,14 @@ em {
   }
 }
 
-
 @media screen and (max-width: 900px) {
   .footer-container {
     width: 100%;
   }
 
-  .landing-nav {
+  .global-nav {
     ul {
+      padding-left: 20px;
       justify-content: space-around;
       li {
         .dropdown {
@@ -138,6 +178,7 @@ em {
       }
     }
   }
+
 }
 
 @media screen and (max-width: 700px) {

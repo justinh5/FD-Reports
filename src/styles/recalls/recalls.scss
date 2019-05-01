@@ -30,21 +30,10 @@
   font-weight: bolder;
 }
 
-.notice-container {
-  text-align: center;
-  width: 75%;
-  margin: 2em auto;
-}
-
-.notice {
-  display: block;
-  margin-top: 15px;
-}
-
 .block-grid {
   display: grid;
   grid-template-columns: 0.4fr 1fr;
-  grid-template-rows: minmax(min-content, 400px) minmax(min-content, 10px) minmax(500px, 1000px);
+  grid-template-rows: minmax(min-content, 400px) minmax(min-content, 10px);
   grid-gap: 40px 40px;
   width: 100%;
 }

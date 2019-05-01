@@ -1,11 +1,14 @@
 import React from 'react';
-// import styles from "../styles/footer.scss";
+import github_icon from '../assets/images/github-brands.svg';
 
 function Footer() {
 
   return (
     <div className="footer-container">
-      <em>Do not rely on FD Reports to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.</em>
+      <p>FD Reports</p>
+      <a href='https://github.com/justinh5/FD-Reports'>
+        <img src={github_icon}/>
+      </a>
     </div>
   );
 }
