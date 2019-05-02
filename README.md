@@ -1,53 +1,35 @@
 # FD Reports
 
-A sample CRUD Angular app for tracking personal dietary macronutrients. Nutrition data is sourced from the [USDA Food Composition Databases](https://ndb.nal.usda.gov/ndb/search/list?home=true).
+A proof of concept app that demonstrates the use of the public [openFDA](https://open.fda.gov/) API and data visualization with [chart.js](https://www.chartjs.org/). Selected datasets are for Adverse Events and Recall enforcements regarding food, drugs, and devices in the U.S.
 
-See demo [here](https://macros-f17e6.firebaseapp.com/)
+See demo [here](https://fd-reports.netlify.com/)
 
-![screenshot](screenshot.png)
+[![screenshot](./src/assets/images/api_banner.jpg)](https://open.fda.gov/)
+
+## React version
+
+15.5.4
 
 
-## Development Setup
+## Setting up Locally
 
-1. Create a new [Firebase](https://firebase.google.com/) project and store configuration details in the file src/app/api-keys.ts in the following format:
-
+Clone project
 ```
-export const masterFirebaseConfig = {
-  apiKey: "...",
-  authDomain: "...",
-  databaseURL: "...",
-  projectId: "...",
-  storageBucket: "...",
-  messagingSenderId: "..."
-};
+git clone https://github.com/justinh5/FD-Reports.git
 ```
 
-2. Obtain a USDA Food Composition API key and store in the same file:
+Run dev server
+```
+npm run start
+```
+Navigate to http://localhost:8080
+
+## Testing with Jest
 
 ```
-export const usdaApiKey = "...";
+npm test
 ```
 
-3. Run the dev server and navigate to `http://localhost:4200/`:
-
-```
-ng serve --open
-```
-
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## TODO Features
-
-* Individual user accounts
-* Drag and drop file tree structure
-* USDA food composition database browser
 
 ## License
 
