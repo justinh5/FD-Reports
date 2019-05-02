@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../styles/recalls/recallsStatus.scss';
 
 function recallStatus(props) {
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/adverseEvents/AESeriousness.scss';
 import { Doughnut } from 'react-chartjs-2';
 
 function AESeriousness(props) {

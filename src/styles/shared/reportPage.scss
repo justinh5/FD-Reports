@@ -1,36 +1,15 @@
 
 @import '../partials/base';
 
-.title-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 2em 0 1em 0;
-
-  -webkit-box-shadow: 0 8px 6px -6px $gray_light;
-	   -moz-box-shadow: 0 8px 6px -6px $gray_light;
-	        box-shadow: 0 8px 6px -6px $gray_light;
-
-  h1 {
-    color: black;
-    font-family: "Arial Black", sans-serif;
-    font-size: 3em;
-    margin: 0;
-    margin-right: 20px;
-  }
-
-  img {
-    width: $icon-width;
-  }
+.ae-block-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  grid-template-rows: minmax(min-content, 400px) minmax(min-content, 10px) minmax(500px, 1000px);
+  grid-gap: 40px 40px;
+  width: 100%;
 }
 
-.subtitle {
-  color: $gray_med;
-  font-family: Arial, sans-serif;
-  font-weight: bolder;
-}
-
-.block-grid {
+.recalls-block-grid {
   display: grid;
   grid-template-columns: 0.4fr 1fr;
   grid-template-rows: minmax(min-content, 400px) minmax(min-content, 10px);
@@ -59,6 +38,12 @@
   min-width: 0;
 }
 
+.four {
+  grid-column: 1 / 3;
+  grid-row: 3;
+  min-width: 0;
+}
+
 .report-item {
   background-color: white;
   -moz-box-shadow:    2px 2px 3px 1px $gray_light;
@@ -69,10 +54,6 @@
 .linechart-container {
   width: 100%;
   height: 100%;
-}
-
-.status-container {
-  width: 100%;
 }
 
 .chart-title {
@@ -94,8 +75,7 @@
   }
 
   .legend-label {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 
@@ -119,14 +99,42 @@
   background-color: $chart_color5;
 }
 
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+
+  .tab {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #D8D8D8;
+    border-right: 1px solid $gray_light;
+
+    &.selected {
+      background-color: white;
+      border-top: 5px solid #57E299;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 div:focus {
   background-color: white;
   border-bottom: 5px solid #57E299;
 }
 
 @media screen and (max-width: 900px) {
-  .block-grid {
+  .ae-block-grid {
     grid-gap: 0;
   }
-
+  .recalls-block-grid {
+    grid-gap: 0;
+  }
 }

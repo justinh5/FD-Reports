@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/adverseEvents/AERecords.scss';
 
 function AERecordList(props) {
-
-  // Save max value in state?
 
   return (
     <div className="record-container">

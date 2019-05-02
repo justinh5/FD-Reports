@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers/index';
-import styles from './styles/main.scss';
+import './styles/main.scss';
 import { HashRouter } from 'react-router-dom';
 
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styles from '../styles/recalls/recalls.scss';
 import constants from './../constants';
 const { recallData } = constants;
 import { fetchRecallTimeData, fetchStatusData, fetchClassData } from './../actions';
@@ -38,7 +37,7 @@ class Recallsdevice extends React.Component {
       <div>
         <GlobalNav/>
         <RecallsHeader page={this.page}/>
-        <div className="block-grid">
+        <div className="recalls-block-grid">
           <div className="one report-item">
             <RecallsLinechart title={`Total ${this.page} Recall Reports Since 2012`}
                 setA={recallData.device.setA}

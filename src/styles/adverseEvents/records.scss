@@ -1,6 +1,32 @@
 
 @import '../partials/base';
 
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+
+  .tab {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #D8D8D8;
+    border-right: 1px solid $gray_light;
+
+    &.selected {
+      background-color: white;
+      border-top: 5px solid $chart_color5;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 .record-container {
 
   padding: 0 70px 70px 70px;
@@ -9,9 +35,7 @@
     margin: 55px 0;
   }
 
-
   .record {
-
     margin-top: 30px;
 
     .record-label {
@@ -38,13 +62,4 @@
       transition-delay: 0s;
     }
   }
-
-
-}
-
-
-
-@media screen and (max-width: 600px) {
-
-
 }

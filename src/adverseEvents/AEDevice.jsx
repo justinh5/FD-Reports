@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styles from '../styles/adverseEvents/adverseEvents.scss';
 import constants from './../constants';
 const { adverseEventsData } = constants;
 import { fetchAETimeData, selectTab, fetchRecords } from './../actions';
@@ -44,7 +43,7 @@ class AEdevices extends React.Component {
       <div>
         <GlobalNav/>
         <AEHeader page={this.page}/>
-        <div className="block-grid">
+        <div className="ae-block-grid">
           <div className="one report-item">
             <AELinechart title={`Total ${this.page} Adverse Event Reports Since 1991`}
                 times={this.props.times}/>

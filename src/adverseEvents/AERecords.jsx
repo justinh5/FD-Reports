@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styles from '../styles/adverseEvents/AERecords.scss';
 import AERecordList from './AERecordList';
 
 function AERecords(props) {
@@ -50,7 +49,7 @@ function AERecords(props) {
         </div>
       </div>
       <AERecordList recordList={props.recordList}
-                    description={description}/>
+          description={description}/>
     </div>
   );
 }

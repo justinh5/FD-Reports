@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../styles/recalls/recallsClassifications.scss';
 import { Doughnut } from 'react-chartjs-2';
 
 function RecallsClassifications(props) {
