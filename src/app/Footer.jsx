@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="footer-container">
       <p>FD Reports</p>
-      <a href='https://github.com/justinh5/FD-Reports'>
+      <a href="https://github.com/justinh5/FD-Reports" target="__blank">
         <img src={github_icon}/>
       </a>
     </div>
