@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 
@@ -62,13 +63,30 @@ module.exports = {
       },
       {
         test: /\.(png|gif|jp(e*)g|svg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 8000,
-            name: 'images/[hash]-[name].[ext]'
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
           }
-        }
+        ]
       }
     ]
   },
@@ -82,5 +100,6 @@ module.exports = {
       title: 'FD Reports',
       filename: resolve(__dirname, 'dist', 'index.html')
     }),
+    new CleanWebpackPlugin(),
   ]
 };

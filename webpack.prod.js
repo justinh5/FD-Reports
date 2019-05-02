@@ -1,10 +1,8 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ImageminPlugin = require("imagemin-webpack");
-const imageminJpegtran = require("imagemin-jpegtran");
-const imageminOptipng = require("imagemin-optipng");
-const imageminSvgo = require("imagemin-svgo");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 module.exports = {
 
@@ -55,13 +53,30 @@ module.exports = {
       },
       {
         test: /\.(png|gif|jp(e*)g|svg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 8000,
-            name: 'images/[hash]-[name].[ext]'
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
           }
-        }
+        ]
       }
     ]
   },
@@ -77,24 +92,6 @@ module.exports = {
         collapseWhitespace: true
       }
     }),
-    new ImageminPlugin({
-      bail: false, // Ignore errors on corrupted images
-      cache: true,
-      imageminOptions: {
-        // Lossless optimization with custom option
-        // Feel free to experement with options for better result for you
-        plugins: [
-          imageminJpegtran({
-            progressive: true
-          }),
-          imageminOptipng({
-            optimizationLevel: 5
-          }),
-          imageminSvgo({
-            removeViewBox: true
-          })
-        ]
-      }
-    })
+    new CleanWebpackPlugin(),
   ]
 };
