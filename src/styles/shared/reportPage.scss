@@ -4,7 +4,7 @@
 .ae-block-grid {
   display: grid;
   grid-template-columns: 0.7fr 1fr;
-  grid-template-rows: minmax(min-content, 400px) minmax(min-content, 10px) minmax(500px, 1000px);
+  grid-template-rows: auto auto auto;
   grid-gap: 40px 40px;
   width: 100%;
 }
@@ -12,7 +12,7 @@
 .recalls-block-grid {
   display: grid;
   grid-template-columns: 0.4fr 1fr;
-  grid-template-rows: minmax(min-content, 400px) minmax(min-content, 10px);
+  grid-template-rows: auto auto;
   grid-gap: 40px 40px;
   width: 100%;
 }
@@ -53,7 +53,7 @@
 
 .linechart-container {
   width: 100%;
-  height: 100%;
+  height: 25em;
 }
 
 .chart-title {
@@ -99,36 +99,6 @@
   background-color: $chart_color5;
 }
 
-.tabs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-
-  .tab {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #D8D8D8;
-    border-right: 1px solid $gray_light;
-
-    &.selected {
-      background-color: white;
-      border-top: 5px solid #57E299;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-div:focus {
-  background-color: white;
-  border-bottom: 5px solid #57E299;
-}
 
 @media screen and (max-width: 900px) {
   .ae-block-grid {
