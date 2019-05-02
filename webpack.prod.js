@@ -1,6 +1,10 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminPlugin = require("imagemin-webpack");
+const imageminJpegtran = require("imagemin-jpegtran");
+const imageminOptipng = require("imagemin-optipng");
+const imageminSvgo = require("imagemin-svgo");
 
 module.exports = {
 
@@ -73,5 +77,24 @@ module.exports = {
         collapseWhitespace: true
       }
     }),
+    new ImageminPlugin({
+      bail: false, // Ignore errors on corrupted images
+      cache: true,
+      imageminOptions: {
+        // Lossless optimization with custom option
+        // Feel free to experement with options for better result for you
+        plugins: [
+          imageminJpegtran({
+            progressive: true
+          }),
+          imageminOptipng({
+            optimizationLevel: 5
+          }),
+          imageminSvgo({
+            removeViewBox: true
+          })
+        ]
+      }
+    })
   ]
 };
