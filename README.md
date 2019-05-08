@@ -30,6 +30,10 @@ Navigate to http://localhost:8080
 npm test
 ```
 
+## Components
+
+![components](./components.png)
+
 
 ## License
 
