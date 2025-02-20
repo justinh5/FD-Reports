@@ -2,7 +2,7 @@
 
 A proof of concept app that demonstrates the use of the public [openFDA](https://open.fda.gov/) API and data visualization with [chart.js](https://www.chartjs.org/). Selected datasets are for Adverse Events and Recall enforcements regarding food, drugs, and devices in the U.S.
 
-See demo [here](https://fd-reports.netlify.com/)
+See demo [here](https://fd-reports.netlify.app/)
 
 [![screenshot](./src/assets/images/api_banner.jpg)](https://open.fda.gov/)
 
